@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-
 import Row from 'react-bootstrap/Row';
 
 import styles from './PortfolioSection.module.scss';
@@ -24,7 +23,7 @@ export default class PortfolioSection extends Component {
                             <h1>
                                 {this.props.title}
                                 {this.props.subtitle ?
-                                    <small> <span className="d-none d-md-inline-block">&#8212;</span> {this.props.subtitle}</small>
+                                    <small className="d-block d-md-inline-block"><span className="d-none d-md-inline-block">&nbsp;&#8212;</span> {this.props.subtitle}</small>
                                 : null}
                             </h1>
                         : null}
@@ -41,6 +40,7 @@ export default class PortfolioSection extends Component {
                 {/* Optional next chevron */}
                 {this.props.scrollNextChevron ?
                     <div className={styles.chevronContainer}>
+                        {/* eslint-disable-next-line @next/next/link-passhref */}
                         <Link href={this.props.scrollNextChevronDestination}>
                             <FontAwesomeIcon
                                 className={styles.chevron}
