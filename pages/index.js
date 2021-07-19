@@ -11,7 +11,7 @@ import PortfolioHeader from '../components/PortfolioHeader';
 import PortfolioSection from '../components/PortfolioSection';
 import PortfolioAccomplishment from '../components/PortfolioAccomplishment';
 import PortfolioProjectAccomplishment from '../components/PortfolioProjectAccomplishment';
-
+import PortfolioSectionSubHeader from '../components/PortfolioSection/PortfolioSectionSubHeader';
 import styles from '../styles/Home.module.scss';
 
 // Projects
@@ -38,12 +38,14 @@ import projectIconMonthlicon from '../public/projects/monthlicon.jpg';
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.refs = {
-      aboutMe: createRef(),
-      mySkills: createRef(),
-      myInterests: createRef(),
-      myProjects: createRef(),
-      findMe: createRef(),
+    this.state = {
+      refs: {
+        aboutMe: createRef(),
+        mySkills: createRef(),
+        myInterests: createRef(),
+        myProjects: createRef(),
+        findMe: createRef(),
+      },
     }
   }
 
@@ -57,10 +59,10 @@ export default class Home extends Component {
           <meta property="og:title" content="Maxwell Lang :: Portfolio" />
           <meta property="og:site_name" content="Maxwell Lang :: Portfolio" />
           <meta property="og:description" content="I&#x27;m Maxwell Lang, a Full Stack Web Developer with 3 years of professional experience." />
-          {/* <meta property="og:image" content={ImagemlIcon} /> */}
           <meta property="og:url" content="https://www.maxwlang.com/" />
-          {/* <meta property="twitter:site" content="@maxwlang" /> */}
           <meta name="msapplication-TileColor" content="#0de05e"/>
+          {/* <meta property="og:image" content={ImagemlIcon} /> */}
+          {/* <meta property="twitter:site" content="@maxwlang" /> */}
           {/* <link rel="icon" href="/favicon.ico" /> */}
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-24SMZDF52M"></script>
         </Head>
@@ -68,16 +70,18 @@ export default class Home extends Component {
         <main>
           {/* About Me */}
           <PortfolioHeader
+            id="sectionAboutMe"
+            ref={this.state.refs.aboutMe}
             title="My name is Maxwell Lang"
             subtitle="I'm a Full Stack Web Developer with 3+ years of professional experience."
             scrollNextChevron={true}
-            scrollNextChevronDestination="#ee"
+            scrollNextChevronDestination={this.state.refs.mySkills}
           />
 
           {/* My Skills */}
           <PortfolioSection
             id="sectionMySkills"
-            ref={this.mySkills}
+            ref={this.state.refs.mySkills}
             title="My Skills"
             subtitle="Programming Languages"
             scrollNextChevron={true}
@@ -93,8 +97,8 @@ export default class Home extends Component {
             <PortfolioAccomplishment title="PHP" subtitle="I am also fluent in PHP">
               PHP was the first back-end language I learned, and I used
               it to build dozens of hobby websites as I was learning how
-              to program. I have a hobby site I've written in PHP on my <a target="_blank" href="https://github.com/maxwlang">Github</a>.
-              Just before I started programming in NodeJS I was using the <a target="_blank" href="https://www.slimframework.com/">Slim
+              to program. I have a hobby site I've written in PHP on my <a target="_blank" href="https://github.com/maxwlang" rel="noreferrer">Github</a>.
+              Just before I started programming in NodeJS I was using the <a target="_blank" href="https://www.slimframework.com/" rel="noreferrer">Slim
               framework</a> for PHP to power my projects.
             </PortfolioAccomplishment>
 
@@ -113,14 +117,36 @@ export default class Home extends Component {
             <PortfolioAccomplishment title="Python" subtitle="I have a good understanding of Python">
               I don't program in Python very often but when I do it's typically
               creating scripts to scrape web content. I have a script that does
-              this open sourced on my <a target="_blank" href="https://github.com/maxwlang">Github</a>.
+              this open sourced on my <a target="_blank" rel="noreferrer" href="https://github.com/maxwlang">Github</a>.
               I'm also starting to dabble in the machine learning area using TensorFlow.
             </PortfolioAccomplishment>
+
+            <PortfolioSectionSubHeader title="Operating Systems, Software &amp; Services" />
+
+            {/* <PortfolioAccomplishment title="Python" subtitle="I have a good understanding of Python">
+              I don't program in Python very often but when I do it's typically
+              creating scripts to scrape web content. I have a script that does
+              this open sourced on my <a target="_blank" rel="noreferrer" href="https://github.com/maxwlang">Github</a>.
+              I'm also starting to dabble in the machine learning area using TensorFlow.
+            </PortfolioAccomplishment>
+            <PortfolioAccomplishment title="Python" subtitle="I have a good understanding of Python">
+              I don't program in Python very often but when I do it's typically
+              creating scripts to scrape web content. I have a script that does
+              this open sourced on my <a target="_blank" rel="noreferrer" href="https://github.com/maxwlang">Github</a>.
+              I'm also starting to dabble in the machine learning area using TensorFlow.
+            </PortfolioAccomplishment>
+            <PortfolioAccomplishment title="Python" subtitle="I have a good understanding of Python">
+              I don't program in Python very often but when I do it's typically
+              creating scripts to scrape web content. I have a script that does
+              this open sourced on my <a target="_blank" rel="noreferrer" href="https://github.com/maxwlang">Github</a>.
+              I'm also starting to dabble in the machine learning area using TensorFlow.
+            </PortfolioAccomplishment> */}
           </PortfolioSection>
 
           {/* My Interests */}
+          {/* TODO: Add images */}
           <PortfolioSection
-            ref={this.refs.myInterests}
+            ref={this.state.refs.myInterests}
             title="My Interests &amp; Hobbies"
             subtitle="Interests and hobbies I like to spend my time on"
             scrollNextChevron={true}
@@ -156,7 +182,7 @@ export default class Home extends Component {
 
           {/* My Projects */}
           <PortfolioSection
-            ref={this.refs.myProjects}
+            ref={this.state.refs.myProjects}
             title="My Projects"
             subtitle="Some projects that I've worked on"
             scrollNextChevron={true}
@@ -167,6 +193,7 @@ export default class Home extends Component {
               title="3DSThemes"
               subtitle="A community-oriented console homebrew website written in PHP"
               src={projectIcon3DSThemes.src}
+              needsShowMore={true}
               links={[
                 {
                   href:'https://web.archive.org/web/20150923145948/http://www.3dsthemes.com:80/',
@@ -207,6 +234,7 @@ export default class Home extends Component {
               title="Maagic"
               subtitle="A passion project website shared between friends and trusted users people, written in PHP"
               src={projectIconMaagic.src}
+              needsShowMore={true}
               links={[
                 {
                   href:'https://web.archive.org/web/20181229141001/http://maagic.pw/',
@@ -250,7 +278,7 @@ export default class Home extends Component {
             >
               <p>
                 WebTSS was my attempt at making an open source (MIT) website
-                that saves <a href="https://en.wikipedia.org/wiki/SHSH_blob" target="_blank">iOS SHSH blobs</a>, useful for restoring an iPhone after
+                that saves <a href="https://en.wikipedia.org/wiki/SHSH_blob" target="_blank" rel="noreferrer">iOS SHSH blobs</a>, useful for restoring an iPhone after
                 Apple disallows downgrading to a specific firmware. This project
                 is now defunct, but at the time it gained some small attention and
                 a few community pull requests.
@@ -294,7 +322,7 @@ export default class Home extends Component {
 
           {/* Find Me */}
           <PortfolioSection
-            ref={this.refs.findMe}
+            ref={this.state.refs.findMe}
             title="Find Me"
             subtitle="Here's where we can connect"
           >
