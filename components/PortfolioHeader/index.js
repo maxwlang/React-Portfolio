@@ -1,14 +1,14 @@
 import { Component } from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-
-import Row from 'react-bootstrap/Row';
+import Particles from "react-tsparticles";
+// import Row from 'react-bootstrap/Row';
 
 import imageMe from '../../public/me.png';
 import imageCode from '../../public/code-node.png';
-
+import tsParticleConfig from '../../public/portfolio-particles.json';
 import styles from './PortfolioHeader.module.scss';
 
 export default class PortfolioHeader extends Component {    
@@ -20,12 +20,20 @@ export default class PortfolioHeader extends Component {
     render() {
         return (
             <div className={styles.container} style={{ backgroundImage: 'url(' + imageCode.src + ')' }}>
+                <Particles
+                    id="tsparticles"
+                    options={tsParticleConfig}
+                    className={styles.tsparticles}
+                    canvasClassName={styles.tsparticlesCanvas}
+                />
                 <div className={styles.overlay}>
-                    <div class={styles.content}>
+                    <div className={styles.content}>
                         {/* Image */}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                             src={imageMe.src}
                             className={styles.headshot}
+                            alt="Maxwell Lang's headshot image"
                         />
 
                         {/* Optional header & subheader */}
@@ -47,12 +55,14 @@ export default class PortfolioHeader extends Component {
                     {/* Next chevron */}
                     {this.props.scrollNextChevron ?
                         <div className={styles.chevronContainer}>
-                            <Link href={this.props.scrollNextChevronDestination}>
+                            {/* eslint-disable-next-line @next/next/link-passhref */}
+                            {/* <Button > */}
                                 <FontAwesomeIcon
+                                    onClick={() => console.log(this.props.scrollNextChevronDestination.current)}
                                     className={styles.chevron}
                                     icon={faChevronDown}
                                 />
-                            </Link>
+                            {/* </Button> */}
                         </div>
                     : null}
                 </div>
