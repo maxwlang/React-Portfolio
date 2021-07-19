@@ -6,14 +6,10 @@ import Card from 'react-bootstrap/Card';
 import styles from './PortfolioAccomplishment.module.scss';
 
 export default class PortfolioAccomplishment extends Component {
-// export default withRouter(class PortfolioAccomplishment extends Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
-
-    // componentDidUpdate() {}
-    // handleClick = () => this.setState({ myState: 'setVal' });
 
     render() {
         return (
@@ -33,7 +29,7 @@ export default class PortfolioAccomplishment extends Component {
                         </Card.Text>
 
                         {this.props.links ? 
-                            this.props.map(linkObj => <Card.Link href={linkObj.href}>{linkObj.title}</Card.Link>)
+                            this.props.links.map((linkObj, i) => <Card.Link key={i} href={linkObj.href}>{linkObj.title}</Card.Link>)
                         : null}
                     </Card.Body>
                 </Card>
