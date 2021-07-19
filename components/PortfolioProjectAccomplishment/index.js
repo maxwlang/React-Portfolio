@@ -1,20 +1,22 @@
 import { Component } from 'react';
-import Image from 'next/image';
 
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 import styles from './PortfolioProjectAccomplishment.module.scss';
 
 export default class PortfolioProjectAccomplishment extends Component {
-// export default withRouter(class PortfolioAccomplishment extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            showMore: false,
+        };
     }
 
-    // componentDidUpdate() {}
-    // handleClick = () => this.setState({ myState: 'setVal' });
+    handleClick = () => {
+        this.setState({ showMore: !this.state.showMore });
+    }
 
     render() {
         return (
@@ -30,12 +32,29 @@ export default class PortfolioProjectAccomplishment extends Component {
                             <Card.Subtitle className="mb-2 text-muted">{this.props.subtitle}</Card.Subtitle>
                         : null}
 
-                        <Card.Text>
+                        {/* We use this instead of Card.Text so we can throw multiple <p> tags in here. It's also what we use to control the "show more" view */}
+                        <div className={styles.cardText} style={{ height: (this.state.showMore ? 'auto' : '8rem') }}>
                             {this.props.children}
-                        </Card.Text>
+                        </div>
+
+                        {this.props.needsShowMore ?
+                            <Button
+                                variant="link"
+                                onClick={this.handleClick}
+                                className={styles.readMore}
+                            >
+                                {this.state.showMore ?
+                                    "Show Less"
+                                :
+                                    "Show More"
+                                }
+                            </Button>
+                        : null}
 
                         {this.props.links ? 
-                            this.props.links.map(linkObj => <Card.Link className="btn btn-primary" target="_blank" href={linkObj.href}>{linkObj.title}</Card.Link>)
+                            <div className={styles.buttonContainer}>
+                                {this.props.links.map((linkObj, i) => <Button key={i} href={linkObj.href}>{linkObj.title}</Button>)}
+                            </div>
                         : null}
                     </Card.Body>
                 </Card>
