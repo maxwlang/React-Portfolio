@@ -29,7 +29,7 @@ export default class PortfolioAccomplishment extends Component {
                         </Card.Text>
 
                         {this.props.links ? 
-                            this.props.links.map((linkObj, i) => <Card.Link key={i} href={linkObj.href}>{linkObj.title}</Card.Link>)
+                            this.props.links.map((linkObj, i) => <Card.Link key={i} target="_blank" rel="noreferrer" href={linkObj.href}>{linkObj.title}</Card.Link>)
                         : null}
                     </Card.Body>
                 </Card>

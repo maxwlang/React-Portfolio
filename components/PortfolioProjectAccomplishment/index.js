@@ -53,7 +53,7 @@ export default class PortfolioProjectAccomplishment extends Component {
 
                         {this.props.links ? 
                             <div className={styles.buttonContainer}>
-                                {this.props.links.map((linkObj, i) => <Button key={i} href={linkObj.href}>{linkObj.title}</Button>)}
+                                {this.props.links.map((linkObj, i) => <Button key={i} target="_blank" rel="noreferrer" href={linkObj.href}>{linkObj.title}</Button>)}
                             </div>
                         : null}
                     </Card.Body>
