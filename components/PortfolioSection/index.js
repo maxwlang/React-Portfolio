@@ -32,7 +32,7 @@ export default class PortfolioSection extends Component {
 
                 {/* Inner content */}
                 <div className={styles.innerContent}>
-                    <Row>
+                    <Row style={{ justifyContent: (this.props.spaceAround ? 'space-around' : 'unset') }}>
                         {this.props.children}
                     </Row>
                 </div>
