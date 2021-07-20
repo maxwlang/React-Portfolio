@@ -232,7 +232,7 @@ export default class Home extends Component {
             {/* Maagic */}
             <PortfolioProjectAccomplishment
               title="Maagic"
-              subtitle="A passion project website shared between friends and trusted users people, written in PHP"
+              subtitle="A passion project website shared between friends and trusted people, written in PHP"
               src={projectIconMaagic.src}
               needsShowMore={true}
               links={[
