@@ -21,7 +21,7 @@ export default class PortfolioProjectAccomplishment extends Component {
     render() {
         return (
             <Col xs={12} sm={6} lg={4}>
-                <Card className={styles.card}>
+                <Card>
                     <Card.Img className={styles.cardImage} variant="top" src={this.props.src} />
                     <Card.Body>
                         {this.props.title ?
