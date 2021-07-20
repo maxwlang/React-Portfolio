@@ -6,9 +6,12 @@ import Link from 'next/link';
 // import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faBlog } from '@fortawesome/free-solid-svg-icons';
 
 import PortfolioHeader from '../components/PortfolioHeader';
 import PortfolioSection from '../components/PortfolioSection';
+import PortfolioSocialLink from '../components/PortfolioSocialLink';
 import PortfolioAccomplishment from '../components/PortfolioAccomplishment';
 import PortfolioProjectAccomplishment from '../components/PortfolioProjectAccomplishment';
 import PortfolioSectionSubHeader from '../components/PortfolioSection/PortfolioSectionSubHeader';
@@ -90,8 +93,8 @@ export default class Home extends Component {
             <PortfolioAccomplishment title="NodeJS" subtitle="I am fluent in NodeJS">
               I have programmed in NodeJS at a professional
               level for over 3 years. Most of my personal projects
-              are written in NodeJS when it makes sense. This website
-              is written in NodeJS (using NextJS).
+              are written in NodeJS when it makes sense. <a href="https://github.com/maxwlang/React-Portfolio" target="_blank" rel="noreferrer">This website
+              is written in NodeJS (using NextJS)</a>.
             </PortfolioAccomplishment>
 
             <PortfolioAccomplishment title="PHP" subtitle="I am also fluent in PHP">
@@ -134,8 +137,8 @@ export default class Home extends Component {
 
             <PortfolioAccomplishment title="React / React Native (Expo)" subtitle="I am comfortably learning React">
               I have created several multi-paged mobile applications using React Native through
-              Expo. I have also created a few personal projects using React. This portfolio site
-              uses React, and is built on the NextJS React framework.
+              Expo. I have also created a few personal projects using React. <a href="https://github.com/maxwlang/React-Portfolio" target="_blank" rel="noreferrer">This portfolio site
+              uses React, and is built on the NextJS React framework</a>. I encourage you to take a look!
             </PortfolioAccomplishment>
 
             <PortfolioAccomplishment title="Networking" subtitle="I maintain a gigabit internal and external network at home">
@@ -353,22 +356,56 @@ export default class Home extends Component {
             </PortfolioProjectAccomplishment>
 
             {/* View More */}
-            <Col xs={12} className={styles.projectsViewMoreContainer}>
+            {/* <Col xs={12} className={styles.projectsViewMoreContainer}>
               <Link href="/projects" passHref>
                 <Button size="lg" color="primary">
                   View More
                 </Button>
               </Link>
-            </Col>
+            </Col> */}
           </PortfolioSection>
 
           {/* Find Me */}
+          {/* TODO: Center these */}
           <PortfolioSection
             ref={this.state.refs.findMe}
             title="Find Me"
             subtitle="Here's where we can connect"
+            spaceAround={true}
           >
-            {/* linkedin, github */}
+            <PortfolioSocialLink
+              icon={faLinkedin}
+              title="LinkedIn"
+              subtitle="Connect with me on LinkedIn"
+              links={[
+                {
+                  href: 'https://www.linkedin.com/in/maxwlang/',
+                  title: 'LinkedIn',
+                }
+              ]}
+            />
+            <PortfolioSocialLink
+              icon={faGithub}
+              title="GitHub"
+              subtitle="Follow me on GitHub"
+              links={[
+                {
+                  href: 'https://github.com/maxwlang',
+                  title: 'GitHub',
+                }
+              ]}
+            />
+            <PortfolioSocialLink
+              icon={faBlog}
+              title="Blog"
+              subtitle="Subscribe to my blog"
+              links={[
+                {
+                  href: 'https://blog.maxwlang.com/',
+                  title: 'Blog',
+                }
+              ]}
+            />
           </PortfolioSection>
         </main>
       </>
