@@ -42,13 +42,13 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      refs: {
-        aboutMe: createRef(),
-        mySkills: createRef(),
-        myInterests: createRef(),
-        myProjects: createRef(),
-        findMe: createRef(),
-      },
+      // refs: {
+      //   aboutMe: createRef(),
+      //   mySkills: createRef(),
+      //   myInterests: createRef(),
+      //   myProjects: createRef(),
+      //   findMe: createRef(),
+      // },
     }
   }
 
@@ -73,22 +73,22 @@ export default class Home extends Component {
         <main>
           {/* About Me */}
           <PortfolioHeader
-            id="sectionAboutMe"
-            ref={this.state.refs.aboutMe}
+            // id="sectionAboutMe"
+            // ref={this.state.refs.aboutMe}
             title="My name is Maxwell Lang"
             subtitle="I'm a Full Stack Web Developer with 3+ years of professional experience."
-            scrollNextChevron={true}
-            scrollNextChevronDestination={this.state.refs.mySkills}
+            // scrollNextChevron={true}
+            // scrollNextChevronDestination={this.state.refs.mySkills}
           />
 
           {/* My Skills */}
           <PortfolioSection
-            id="sectionMySkills"
-            ref={this.state.refs.mySkills}
+            // id="sectionMySkills"
+            // ref={this.state.refs.mySkills}
             title="My Skills"
             subtitle="Programming Languages"
-            scrollNextChevron={true}
-            scrollNextChevronDestination="#sectionMySkills"
+            // scrollNextChevron={true}
+            // scrollNextChevronDestination="#sectionMySkills"
           >
             <PortfolioAccomplishment title="NodeJS" subtitle="I am fluent in NodeJS">
               I have programmed in NodeJS at a professional
@@ -191,11 +191,11 @@ export default class Home extends Component {
           {/* My Interests */}
           {/* TODO: Add images */}
           <PortfolioSection
-            ref={this.state.refs.myInterests}
+            // ref={this.state.refs.myInterests}
             title="My Interests &amp; Hobbies"
             subtitle="Interests and hobbies I like to spend my time on"
-            scrollNextChevron={true}
-            scrollNextChevronDestination="#sectionMySkills"
+            // scrollNextChevron={true}
+            // scrollNextChevronDestination="#sectionMySkills"
           >
             <PortfolioAccomplishment title="Computer Programming">
               Web development, scripting, video game mods, apps, automation and more.
@@ -227,11 +227,11 @@ export default class Home extends Component {
 
           {/* My Projects */}
           <PortfolioSection
-            ref={this.state.refs.myProjects}
+            // ref={this.state.refs.myProjects}
             title="My Projects"
             subtitle="Some projects that I've worked on"
-            scrollNextChevron={true}
-            scrollNextChevronDestination="#sectionMySkills"
+            // scrollNextChevron={true}
+            // scrollNextChevronDestination="#sectionMySkills"
           >
             {/* 3DSThemes */}
             <PortfolioProjectAccomplishment
@@ -368,7 +368,7 @@ export default class Home extends Component {
           {/* Find Me */}
           {/* TODO: Center these */}
           <PortfolioSection
-            ref={this.state.refs.findMe}
+            // ref={this.state.refs.findMe}
             title="Find Me"
             subtitle="Here's where we can connect"
             spaceAround={true}
