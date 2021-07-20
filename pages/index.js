@@ -123,24 +123,66 @@ export default class Home extends Component {
 
             <PortfolioSectionSubHeader title="Operating Systems, Software &amp; Services" />
 
-            {/* <PortfolioAccomplishment title="Python" subtitle="I have a good understanding of Python">
-              I don't program in Python very often but when I do it's typically
-              creating scripts to scrape web content. I have a script that does
-              this open sourced on my <a target="_blank" rel="noreferrer" href="https://github.com/maxwlang">Github</a>.
-              I'm also starting to dabble in the machine learning area using TensorFlow.
+            <PortfolioAccomplishment title="Microsoft SQL Server / TSQL" subtitle="I have worked with Microsoft Sql Server in a production setting">
+              I have experience creating databases, tables, stored procedures and managing
+              basic permissions in Microsoft SQL Server.
             </PortfolioAccomplishment>
-            <PortfolioAccomplishment title="Python" subtitle="I have a good understanding of Python">
-              I don't program in Python very often but when I do it's typically
-              creating scripts to scrape web content. I have a script that does
-              this open sourced on my <a target="_blank" rel="noreferrer" href="https://github.com/maxwlang">Github</a>.
-              I'm also starting to dabble in the machine learning area using TensorFlow.
+
+            <PortfolioAccomplishment title="MySQL / MariaDB" subtitle="I typically use MySQL for my hobby projects">
+              I prefer to use MySQL over MariaDB, but have used both for hobby projects.
             </PortfolioAccomplishment>
-            <PortfolioAccomplishment title="Python" subtitle="I have a good understanding of Python">
-              I don't program in Python very often but when I do it's typically
-              creating scripts to scrape web content. I have a script that does
-              this open sourced on my <a target="_blank" rel="noreferrer" href="https://github.com/maxwlang">Github</a>.
-              I'm also starting to dabble in the machine learning area using TensorFlow.
-            </PortfolioAccomplishment> */}
+
+            <PortfolioAccomplishment title="React / React Native (Expo)" subtitle="I am comfortably learning React">
+              I have created several multi-paged mobile applications using React Native through
+              Expo. I have also created a few personal projects using React. This portfolio site
+              uses React, and is built on the NextJS React framework.
+            </PortfolioAccomplishment>
+
+            <PortfolioAccomplishment title="Networking" subtitle="I maintain a gigabit internal and external network at home">
+              At home I run a PFSense install with several subnets splitting traffic for LAN,
+              Virtual Machines and Guest users into seperate networks. My home network is also
+              built with cat5e cables I've cut and run myself and using fully managed HP ProCurve
+              switches configured through the console.
+            </PortfolioAccomplishment>
+
+            <PortfolioAccomplishment title="Datahoarding" subtitle="I maintain a 30TB FreeNAS server at home">
+              I use FreeNAS to make large amounts of storage accessable throughout my home network.
+              My computers at home connect to the NAS to allow quick access to large amounts of data.
+              Multiple devices and service ranging from Plex to Security cameras also use this storage
+              to hold data.
+            </PortfolioAccomplishment>
+
+            <PortfolioAccomplishment title="Virtualization &amp; Docker" subtitle="The majority of services I run at home are virtualized with Hyper-V">
+              I host a variety of permanent and temparary virtual machines at home with Microsoft Hyper-V.
+              The virtual machines vary from headless Linux installs to Windows desktop installs. Some of my
+              virtualized services include Plex, FreeNAS, a NGINX web server, and a MySQL database server.
+              I also have basic working knowledge of Docker and Docker Compose. My primary experience with
+              Docker comes from CI/Pipelines integration on Atlassian's BitBucket.
+            </PortfolioAccomplishment>
+
+            <PortfolioAccomplishment title="Server Administration" subtitle="I work well in several server environments">
+              I have used and administrated Windows Server in a professional environment for over 3 years.
+              I also have around 9 years of experience working in the terminal of Debian-based Linux servers.
+            </PortfolioAccomplishment>
+
+            <PortfolioSectionSubHeader title="Other Skills" />
+
+            <PortfolioAccomplishment title="Ethernet Cabling">
+              I have experience creating my own CAT5e ethernet cabling. All the networking hardware in my home
+              uses ethernet cables I have created myself.
+            </PortfolioAccomplishment>
+
+            <PortfolioAccomplishment title="Soldering" subtitle="I can successfully solder on small electronics">
+              I've soldered modchips into video game consoles, repaired damaged computer components, and
+              soldered to my own custom designed PCBs.
+            </PortfolioAccomplishment>
+
+            <PortfolioAccomplishment title="Bug Bounties &amp; Reverse Engineering">
+              I have earned payouts for responsibly disclosing software vulnerabilities. I have experience
+              reverse engineering iOS applications and system executables. I have created iOS operating system
+              and application extensions called "Tweaks" that execute at runtime using dumped header files. I
+              have good experience reverse engineering web applications.
+            </PortfolioAccomplishment>
           </PortfolioSection>
 
           {/* My Interests */}
