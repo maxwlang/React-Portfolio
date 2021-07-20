@@ -1,11 +1,11 @@
 import { Component, createRef } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 // import Container from 'react-bootstrap/Container';
 // import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
+// import Col from 'react-bootstrap/Col';
+// import Button from 'react-bootstrap/Button';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBlog } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,7 +15,7 @@ import PortfolioSocialLink from '../components/PortfolioSocialLink';
 import PortfolioAccomplishment from '../components/PortfolioAccomplishment';
 import PortfolioProjectAccomplishment from '../components/PortfolioProjectAccomplishment';
 import PortfolioSectionSubHeader from '../components/PortfolioSection/PortfolioSectionSubHeader';
-import styles from '../styles/Home.module.scss';
+// import styles from '../styles/Home.module.scss';
 
 // Projects
 import projectIcon3DSThemes from '../public/projects/3dsthemes.jpg';
