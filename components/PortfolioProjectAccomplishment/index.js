@@ -33,7 +33,7 @@ export default class PortfolioProjectAccomplishment extends Component {
                         : null}
 
                         {/* We use this instead of Card.Text so we can throw multiple <p> tags in here. It's also what we use to control the "show more" view */}
-                        <div className={styles.cardText} style={{ height: (this.state.showMore ? 'auto' : '8rem') }}>
+                        <div className={styles.cardText} style={{ height: (this.state.showMore || !this.props.needsShowMore ? 'auto' : '8rem') }}>
                             {this.props.children}
                         </div>
 
