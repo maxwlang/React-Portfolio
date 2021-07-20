@@ -1,10 +1,8 @@
 import { Component } from 'react';
-// import Link from 'next/link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Particles from "react-tsparticles";
-// import Row from 'react-bootstrap/Row';
 
 import imageMe from '../../public/me.png';
 import imageCode from '../../public/code-node.png';
