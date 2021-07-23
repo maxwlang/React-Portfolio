@@ -87,7 +87,7 @@ export default class Home extends Component {
               tests={[
                 'XK0-004',
               ]}
-              link="https://verify.comptia.org/code=6V0VJP17585LVK3S"
+              link="https://verify.comptia.org?code=6V0VJP17585LVK3S"
             />
 
             {/* <PortfolioCertification
