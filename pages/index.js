@@ -1,21 +1,15 @@
 import { Component, createRef } from 'react';
 import Head from 'next/head';
-// import Link from 'next/link';
 
-// import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Button from 'react-bootstrap/Button';
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBlog } from '@fortawesome/free-solid-svg-icons';
 
-import PortfolioHeader from '../components/PortfolioHeader';
-import PortfolioSection from '../components/PortfolioSection';
-import PortfolioSocialLink from '../components/PortfolioSocialLink';
-import PortfolioAccomplishment from '../components/PortfolioAccomplishment';
-import PortfolioProjectAccomplishment from '../components/PortfolioProjectAccomplishment';
-import PortfolioSectionSubHeader from '../components/PortfolioSection/PortfolioSectionSubHeader';
-// import styles from '../styles/Home.module.scss';
+import PortfolioHeader from '../components/Portfolio/Header';
+import PortfolioSection from '../components/Portfolio/Section';
+import PortfolioSocialLink from '../components/Portfolio/SocialLink';
+import PortfolioAccomplishment from '../components/Portfolio/Accomplishment';
+import PortfolioProjectAccomplishment from '../components/Portfolio/ProjectAccomplishment';
+import PortfolioSectionSubHeader from '../components/Portfolio/Section/SectionSubHeader';
 
 // Projects
 import projectIcon3DSThemes from '../public/projects/3dsthemes.jpg';
@@ -64,10 +58,9 @@ export default class Home extends Component {
           <meta property="og:description" content="I&#x27;m Maxwell Lang, a Full Stack Web Developer with 3 years of professional experience." />
           <meta property="og:url" content="https://www.maxwlang.com/" />
           <meta name="msapplication-TileColor" content="#0de05e"/>
+          <meta property="twitter:site" content="@maxwlang" />
           {/* <meta property="og:image" content={ImagemlIcon} /> */}
-          {/* <meta property="twitter:site" content="@maxwlang" /> */}
           {/* <link rel="icon" href="/favicon.ico" /> */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-24SMZDF52M"></script>
         </Head>
 
         <main>
@@ -403,6 +396,17 @@ export default class Home extends Component {
                 {
                   href: 'https://blog.maxwlang.com/',
                   title: 'Blog',
+                }
+              ]}
+            />
+            <PortfolioSocialLink
+              icon={faTwitter}
+              title="Twitter"
+              subtitle="Follow me on Twitter"
+              links={[
+                {
+                  href: 'https://twitter.com/maxwlang/',
+                  title: 'Twitter',
                 }
               ]}
             />

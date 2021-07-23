@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Particles from "react-tsparticles";
 
-import imageMe from '../../public/me.png';
-import imageCode from '../../public/code-node.png';
-import tsParticleConfig from '../../public/portfolio-particles.json';
-import styles from './PortfolioHeader.module.scss';
+import imageMe from '../../../public/me.png';
+import imageCode from '../../../public/code-node.png';
+import tsParticleConfig from '../../../public/portfolio-particles.json';
+import styles from './Header.module.scss';
 
-export default class PortfolioHeader extends Component {    
+export default class Header extends Component {    
     constructor(props) {
         super(props);
         this.state = {};

@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Row from 'react-bootstrap/Row';
 
-import styles from './PortfolioSection.module.scss';
+import styles from './Section.module.scss';
 
-export default class PortfolioSection extends Component {    
+export default class Section extends Component {    
     constructor(props) {
         super(props);
         this.state = {};

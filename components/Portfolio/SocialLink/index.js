@@ -5,9 +5,9 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import styles from './PortfolioSocialLink.module.scss';
+import styles from './SocialLink.module.scss';
 
-export default class PortfolioSocialLink extends Component {
+export default class SocialLink extends Component {
     constructor(props) {
         super(props);
         this.state = {};

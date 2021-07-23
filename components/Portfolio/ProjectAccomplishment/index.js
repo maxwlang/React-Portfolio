@@ -4,9 +4,9 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-import styles from './PortfolioProjectAccomplishment.module.scss';
+import styles from './ProjectAccomplishment.module.scss';
 
-export default class PortfolioProjectAccomplishment extends Component {
+export default class ProjectAccomplishment extends Component {
     constructor(props) {
         super(props);
         this.state = {

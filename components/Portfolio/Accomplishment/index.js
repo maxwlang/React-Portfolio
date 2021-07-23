@@ -3,9 +3,9 @@ import { Component } from 'react';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-// import styles from './PortfolioAccomplishment.module.scss';
+// import styles from './Accomplishment.module.scss';
 
-export default class PortfolioAccomplishment extends Component {
+export default class Accomplishment extends Component {
     constructor(props) {
         super(props);
         this.state = {};

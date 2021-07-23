@@ -2,9 +2,9 @@ import { Component } from 'react';
 
 import Col from 'react-bootstrap/Col';
 
-import styles from './PortfolioSectionSubHeader.module.scss';
+import styles from './SectionSubHeader.module.scss';
 
-export default class PortfolioSectionSubHeader extends Component {    
+export default class SectionSubHeader extends Component {    
     constructor(props) {
         super(props);
         this.state = {};
