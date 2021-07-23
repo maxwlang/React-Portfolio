@@ -84,11 +84,10 @@ export default class Home extends Component {
             <PortfolioCertification
               image={certificationIconLinuxPlus}
               name="CompTIA Linux+"
-              subtitle="Completed 7/22/21, awaiting certificate"
               tests={[
                 'XK0-004',
               ]}
-              // link="https://verify.comptia.org/code="
+              link="https://verify.comptia.org/code=6V0VJP17585LVK3S"
             />
 
             {/* <PortfolioCertification
