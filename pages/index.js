@@ -7,6 +7,7 @@ import { faBlog } from '@fortawesome/free-solid-svg-icons';
 import PortfolioHeader from '../components/Portfolio/Header';
 import PortfolioSection from '../components/Portfolio/Section';
 import PortfolioSocialLink from '../components/Portfolio/SocialLink';
+import PortfolioCertification from '../components/Portfolio/Certification';
 import PortfolioAccomplishment from '../components/Portfolio/Accomplishment';
 import PortfolioProjectAccomplishment from '../components/Portfolio/ProjectAccomplishment';
 import PortfolioSectionSubHeader from '../components/Portfolio/Section/SectionSubHeader';
@@ -16,6 +17,10 @@ import projectIcon3DSThemes from '../public/projects/3dsthemes.jpg';
 import projectIconMaagic from '../public/projects/maagic2.jpg';
 import projectIconWebTSS from '../public/projects/webtss.jpg';
 import projectIconMonthlicon from '../public/projects/monthlicon.jpg';
+
+// Certifications
+import certificationIconLinuxPlus from '../public/certifications/linux-plus-certified.png';
+import certificationIconAPlus from '../public/certifications/a-plus-certified.png';
 
 {/*
   "The best sort of inner voice" she began,
@@ -73,6 +78,38 @@ export default class Home extends Component {
             // scrollNextChevron={true}
             // scrollNextChevronDestination={this.state.refs.mySkills}
           />
+
+          {/* Certifications */}
+          <PortfolioSection title="Certifications">
+            <PortfolioCertification
+              image={certificationIconLinuxPlus}
+              name="CompTIA Linux+"
+              subtitle="Completed 7/22/21, awaiting certificate"
+              tests={[
+                'XK0-004',
+              ]}
+              // link="https://verify.comptia.org/code="
+            />
+
+            {/* <PortfolioCertification
+              image={certificationIconAPlus}
+              name="CompTIA Network+"
+              tests={[
+                'XK0-004',
+              ]}
+              // link="https://verify.comptia.org/code="
+            /> */}
+
+            <PortfolioCertification
+              image={certificationIconAPlus}
+              name="CompTIA A+"
+              tests={[
+                '220-902',
+                '220-901'
+              ]}
+              link="https://verify.comptia.org?code=59N15HNVSYL0VXCM"
+            />
+          </PortfolioSection>
 
           {/* My Skills */}
           <PortfolioSection
