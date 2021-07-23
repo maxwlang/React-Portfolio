@@ -1,0 +1,29 @@
+.column {
+    display: flex;
+    justify-content: center;
+}
+
+.image {
+    padding-top: 1.25rem;
+    width: 80%;
+    margin: auto;
+}
+
+.verifyButton {
+    width: 100%;
+    margin-top: auto;
+}
+
+.card {
+    width: 15rem;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonContainer {
+    display: flex;
+    margin-top: .5rem;
+}

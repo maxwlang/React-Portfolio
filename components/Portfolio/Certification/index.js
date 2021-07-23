@@ -2,8 +2,9 @@ import { Component } from 'react';
 
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
-// import styles from './Certification.module.scss';
+import styles from './Certification.module.scss';
 
 export default class Certification extends Component {
     constructor(props) {
@@ -13,24 +14,35 @@ export default class Certification extends Component {
 
     render() {
         return (
-            <Col xs={12} sm={6} lg={4}>
-                <Card>
-                    <Card.Body>
-                        {this.props.title ?
-                            <Card.Title>{this.props.title}</Card.Title>
+            <Col xs={12} sm={3} className={styles.column}>
+                <Card className={styles.card}>
+                    {this.props.image ?
+                        <Card.Img variant="top" className={styles.image} src={this.props.image.src} />
+                    : null}
+                    <Card.Body className={styles.cardBody}>
+                        {this.props.name ?
+                            <Card.Title className="text-center">{this.props.name}</Card.Title>
                         : null}
 
                         {this.props.subtitle ? 
-                            <Card.Subtitle className="mb-2 text-muted">{this.props.subtitle}</Card.Subtitle>
+                            <Card.Subtitle className="mb-2 text-muted text-center">{this.props.subtitle}</Card.Subtitle>
                         : null}
 
-                        <Card.Text>
-                            {this.props.children}
-                        </Card.Text>
-
-                        {this.props.links ? 
-                            this.props.links.map((linkObj, i) => <Card.Link key={i} target="_blank" rel="noreferrer" href={linkObj.href}>{linkObj.title}</Card.Link>)
+                        {this.props.tests ?
+                            <ul type="dash">
+                                {this.props.tests.map((test, i) => <li key={i}>{test}</li>)}
+                            </ul>
                         : null}
+
+
+                        <Button
+                            target="_blank"
+                            rel="noreferrer"
+                            className={styles.verifyButton}
+                            disabled={!('link' in this.props)}
+                            href={this.props.link ? this.props.link : '#'}>
+                                {this.props.link ? 'Verify' : 'Coming Soon'}
+                        </Button>
                     </Card.Body>
                 </Card>
             </Col>
