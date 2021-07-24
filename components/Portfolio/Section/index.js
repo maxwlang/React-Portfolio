@@ -15,7 +15,7 @@ export default class Section extends Component {
 
     render() {
         return (
-            <div className={[styles.container, 'px-2 py-3 px-md-5 py-md-2'].join(' ')}>
+            <div className={[styles.container, 'px-2 py-3 px-md-5 pt-md-4 pb-md-5'].join(' ')}>
                 {/* Optional header & subheader */}
                 {this.props.title || this.props.subtitle ?
                     <div className={styles.header}>
