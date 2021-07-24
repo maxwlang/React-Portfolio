@@ -19,6 +19,7 @@ import projectIconWebTSS from '../public/projects/webtss.jpg';
 import projectIconMonthlicon from '../public/projects/monthlicon.jpg';
 
 // Certifications
+import certificationIconNetworkPlus from '../public/certifications/network-plus-certified.png';
 import certificationIconLinuxPlus from '../public/certifications/linux-plus-certified.png';
 import certificationIconAPlus from '../public/certifications/a-plus-certified.png';
 
@@ -80,7 +81,10 @@ export default class Home extends Component {
           />
 
           {/* Certifications */}
-          <PortfolioSection title="Certifications">
+          <PortfolioSection
+            title="Certifications"
+            spaceAround={true}
+          >
             <PortfolioCertification
               image={certificationIconLinuxPlus}
               name="CompTIA Linux+"
@@ -90,14 +94,15 @@ export default class Home extends Component {
               link="https://verify.comptia.org?code=6V0VJP17585LVK3S"
             />
 
-            {/* <PortfolioCertification
-              image={certificationIconAPlus}
+            <PortfolioCertification
+              image={certificationIconNetworkPlus}
               name="CompTIA Network+"
+              subtitle="Test passed 7/23/21, awaiting certificate"
               tests={[
-                'XK0-004',
+                'N10-007',
               ]}
               // link="https://verify.comptia.org/code="
-            /> */}
+            />
 
             <PortfolioCertification
               image={certificationIconAPlus}
