@@ -29,20 +29,24 @@ export default class Certification extends Component {
                         : null}
 
                         {this.props.tests ?
-                            <ul type="dash">
+                            <ul>
                                 {this.props.tests.map((test, i) => <li key={i}>{test}</li>)}
                             </ul>
                         : null}
 
 
-                        <Button
-                            target="_blank"
-                            rel="noreferrer"
-                            className={styles.verifyButton}
-                            disabled={!('link' in this.props)}
-                            href={this.props.link ? this.props.link : '#'}>
-                                {this.props.link ? 'Verify' : 'Coming Soon'}
-                        </Button>
+                        {this.props.noLink ? 
+                            null
+                        :
+                            <Button
+                                target="_blank"
+                                rel="noreferrer"
+                                className={styles.verifyButton}
+                                disabled={!('link' in this.props)}
+                                href={this.props.link ? this.props.link : '#'}>
+                                    {this.props.link ? 'Verify' : 'Coming Soon'}
+                            </Button>
+                        }
                     </Card.Body>
                 </Card>
             </Col>

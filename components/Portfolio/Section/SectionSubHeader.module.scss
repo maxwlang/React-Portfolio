@@ -3,6 +3,6 @@
 .subheader {
     @include font-size(2rem);
     margin-top: 2rem;
-    margin-left: -0.5rem; // Accounts for container's .5rem padding.
+    // margin-left: -0.5rem; // Accounts for container's .5rem padding.
     font-weight: 400;
 }
