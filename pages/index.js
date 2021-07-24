@@ -60,8 +60,8 @@ export default class Home extends Component {
           <meta name="description" content="I&#x27;m Maxwell Lang, a Full Stack Web Developer with 3 years of professional experience." />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Maxwell Lang :: Portfolio" />
-          <meta property="og:site_name" content="Maxwell Lang :: Portfolio" />
-          <meta property="og:description" content="I&#x27;m Maxwell Lang, a Full Stack Web Developer with 3 years of professional experience." />
+          <meta property="og:site_name" content=" M a xwell Lang :: Portfolio" />
+          <meta property="og:description" content="I &#x27;m Maxwell Lang, a Full Stack Web Developer with 3 years of professional experience." />
           <meta property="og:url" content="https://www.maxwlang.com/" />
           <meta name="msapplication-TileColor" content="#0de05e"/>
           <meta property="twitter:site" content="@maxwlang" />
@@ -97,11 +97,10 @@ export default class Home extends Component {
             <PortfolioCertification
               image={certificationIconNetworkPlus}
               name="CompTIA Network+"
-              subtitle="Test passed 7/23/21, awaiting certificate"
               tests={[
                 'N10-007',
               ]}
-              // link="https://verify.comptia.org/code="
+              link="https://verify.comptia.org?code=ZQFZ23W9S7L0VZKK"
             />
 
             <PortfolioCertification
