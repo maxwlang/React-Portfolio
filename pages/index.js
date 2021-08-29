@@ -12,6 +12,14 @@ import PortfolioAccomplishment from '../components/Portfolio/Accomplishment';
 import PortfolioProjectAccomplishment from '../components/Portfolio/ProjectAccomplishment';
 import PortfolioSectionSubHeader from '../components/Portfolio/Section/SectionSubHeader';
 
+// Favicons
+import imageFavicon from '../public/favicon.ico'
+import imageMLIcon from '../public/ml.png'
+import imageAppleTouchIcon from '../public/apple-touch-icon.png'
+import imageFavicon32 from '../public/favicon-32x32.png'
+import imageFavicon16 from '../public/favicon-16x16.png'
+import imageSafariMask from '../public/safari-pinned-tab.svg'
+
 // Projects
 import projectIcon3DSThemes from '../public/projects/3dsthemes.jpg';
 import projectIconMaagic from '../public/projects/maagic2.jpg';
@@ -57,16 +65,23 @@ export default class Home extends Component {
       <>
         <Head>
           <title>Maxwell Lang :: Portfolio</title>
-          <meta name="description" content="I&#x27;m Maxwell Lang, a Full Stack Web Developer with 3 years of professional experience." />
+          <meta name="description" content="I'm Maxwell Lang, a Full Stack Web Developer with 3 years of professional experience." />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Maxwell Lang :: Portfolio" />
-          <meta property="og:site_name" content=" M a xwell Lang :: Portfolio" />
-          <meta property="og:description" content="I &#x27;m Maxwell Lang, a Full Stack Web Developer with 3 years of professional experience." />
+          <meta property="og:site_name" content=" Maxwell Lang :: Portfolio" />
+          <meta property="og:description" content="I'm Maxwell Lang, a Full Stack Web Developer with 3 years of professional experience." />
           <meta property="og:url" content="https://www.maxwlang.com/" />
           <meta name="msapplication-TileColor" content="#0de05e"/>
           <meta property="twitter:site" content="@maxwlang" />
-          {/* <meta property="og:image" content={ImagemlIcon} /> */}
-          {/* <link rel="icon" href="/favicon.ico" /> */}
+
+          <link rel="icon" href={imageFavicon.src} />
+          <meta property="og:image" content={imageMLIcon.src} />
+          <link rel="apple-touch-icon" sizes="180x180" href={imageAppleTouchIcon.src} />
+          <link rel="icon" type="image/png" sizes="32x32" href={imageFavicon32.src} />
+          <link rel="icon" type="image/png" sizes="16x16" href={imageFavicon16.src} />
+          <link rel="mask-icon" href={imageSafariMask.src} color="#5bbad5" />
+          <meta name="msapplication-TileColor" content="#da532c" />
+          <meta name="theme-color" content="#ffffff" />
         </Head>
 
         <main>
