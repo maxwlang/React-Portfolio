@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start -p 8082",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "true"
   },
   "dependencies": {
     "@forevolve/bootstrap-dark": "^1.2.0-g6c89781692",
