@@ -35,17 +35,17 @@ export default class Certification extends Component {
                         : null}
 
 
-                        {this.props.noLink ? 
-                            null
-                        :
+                        {this.props.link ? 
                             <Button
                                 target="_blank"
                                 rel="noreferrer"
                                 className={styles.verifyButton}
                                 disabled={!('link' in this.props)}
                                 href={this.props.link ? this.props.link : '#'}>
-                                    {this.props.link ? 'Verify' : 'Coming Soon'}
+                                    'Verify'
                             </Button>
+                        :
+                        null
                         }
                     </Card.Body>
                 </Card>

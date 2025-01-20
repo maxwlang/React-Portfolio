@@ -1,7 +1,7 @@
 import { Component, createRef } from 'react';
 import Head from 'next/head';
 
-import { faLinkedin, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBlog } from '@fortawesome/free-solid-svg-icons';
 
 import PortfolioHeader from '../components/Portfolio/Header';
@@ -65,14 +65,13 @@ export default class Home extends Component {
       <>
         <Head>
           <title>Maxwell Lang :: Portfolio</title>
-          <meta name="description" content="I'm Maxwell Lang, a Full Stack Web Developer with 3 years of professional experience." />
+          <meta name="description" content="I'm Maxwell Lang, a Senior Software Engineer with 7 years of professional experience." />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Maxwell Lang :: Portfolio" />
           <meta property="og:site_name" content=" Maxwell Lang :: Portfolio" />
-          <meta property="og:description" content="I'm Maxwell Lang, a Full Stack Web Developer with 3 years of professional experience." />
+          <meta property="og:description" content="I'm Maxwell Lang, a Senior Software Engineer with 7 years of professional experience." />
           <meta property="og:url" content="https://www.maxwlang.com/" />
           <meta name="msapplication-TileColor" content="#0de05e"/>
-          <meta property="twitter:site" content="@maxwlang" />
 
           <link rel="icon" href={imageFavicon.src} />
           <meta property="og:image" content={imageMLIcon.src} />
@@ -90,7 +89,7 @@ export default class Home extends Component {
             // id="sectionAboutMe"
             // ref={this.state.refs.aboutMe}
             title="My name is Maxwell Lang"
-            subtitle="I'm a Full Stack Web Developer with 3+ years of professional experience."
+            subtitle="I'm a Senior Software Engineer with 7 years of professional experience."
             // scrollNextChevron={true}
             // scrollNextChevronDestination={this.state.refs.mySkills}
           />
@@ -102,11 +101,19 @@ export default class Home extends Component {
           >
             <PortfolioCertification
               image={certificationIconLinuxPlus}
+              name="CompTIA Security+"
+              tests={[
+                'SY0-601',
+              ]}
+              // link="https://verify.comptia.org?code=6V0VJP17585LVK3S"
+            />
+            <PortfolioCertification
+              image={certificationIconLinuxPlus}
               name="CompTIA Linux+"
               tests={[
                 'XK0-004',
               ]}
-              link="https://verify.comptia.org?code=6V0VJP17585LVK3S"
+              // link="https://verify.comptia.org?code=6V0VJP17585LVK3S"
             />
 
             <PortfolioCertification
@@ -115,7 +122,7 @@ export default class Home extends Component {
               tests={[
                 'N10-007',
               ]}
-              link="https://verify.comptia.org?code=ZQFZ23W9S7L0VZKK"
+              // link="https://verify.comptia.org?code=ZQFZ23W9S7L0VZKK"
             />
 
             <PortfolioCertification
@@ -125,7 +132,7 @@ export default class Home extends Component {
                 '220-902',
                 '220-901'
               ]}
-              link="https://verify.comptia.org?code=59N15HNVSYL0VXCM"
+              // link="https://verify.comptia.org?code=59N15HNVSYL0VXCM"
             />
           </PortfolioSection>
 
@@ -138,10 +145,10 @@ export default class Home extends Component {
             // scrollNextChevron={true}
             // scrollNextChevronDestination="#sectionMySkills"
           >
-            <PortfolioAccomplishment title="NodeJS" subtitle="I am fluent in NodeJS">
-              I have programmed in NodeJS at a professional
-              level for over 3 years. Most of my personal projects
-              are written in NodeJS when it makes sense. <a href="https://github.com/maxwlang/React-Portfolio" target="_blank" rel="noreferrer">This website
+            <PortfolioAccomplishment title="TypeScript & NodeJS" subtitle="I am fluent in TypeScript">
+              I have programmed in TypeScript and NodeJS at a professional
+              level for over 7 years, Most of my personal projects
+              are written in TypeScript when it makes sense. <a href="https://github.com/maxwlang/React-Portfolio" target="_blank" rel="noreferrer">This website
               is written in NodeJS (using NextJS)</a>.
             </PortfolioAccomplishment>
 
@@ -196,7 +203,7 @@ export default class Home extends Component {
               switches configured through the console.
             </PortfolioAccomplishment>
 
-            <PortfolioAccomplishment title="Datahoarding" subtitle="I maintain a 30TB FreeNAS server at home">
+            <PortfolioAccomplishment title="Datahoarding" subtitle="I maintain a 144TB FreeNAS server at home">
               I use FreeNAS to make large amounts of storage accessable throughout my home network.
               My computers at home connect to the NAS to allow quick access to large amounts of data.
               Multiple devices and service ranging from Plex to Security cameras also use this storage
@@ -253,22 +260,18 @@ export default class Home extends Component {
               iOS tweak development and website vulnerability disclosure.
             </PortfolioAccomplishment>
 
-            <PortfolioAccomplishment title="Homebrew">
-              Custom firmwares, video game mods, cheats, homebrew software and iOS jailbreaking.
-            </PortfolioAccomplishment>
-
             <PortfolioAccomplishment title="Music">
               Using the Ableton Live DAW and a midi keyboard to produce music. Mixing music with Traktor Pro 3
               and Traktor Kontrol.
             </PortfolioAccomplishment>
 
             <PortfolioAccomplishment title="Home Server &amp; Network Administration">
-              I maintain and operate a gigabit internal network and homelab. My homelab consists of a PFSense firewall &amp; a HP Procurve Managed Switch, 30TB NAS, Microsoft Hyper-V,
+              I maintain and operate a 10 gigabit internal network and homelab. My homelab consists of an OPNSense firewall &amp; a HP Procurve Managed Switch, 144TB NAS, Proxmox, Kubernetes,
               Plex, PiHole, and more!
             </PortfolioAccomplishment>
 
             <PortfolioAccomplishment title="Video Games">
-              I love Nintendo consoles, PC gaming, and VR. I also occasionally host video game servers.
+              I love Nintendo consoles, PC gaming, and VR. I also host video game servers for friends.
             </PortfolioAccomplishment>
 
           </PortfolioSection>
@@ -338,7 +341,7 @@ export default class Home extends Component {
               <p>
                 Maagic was a website I built for my friends and I to have
                 screenshot hosting without any real limitations. Maagic was
-                attached to my NAS of 30TB to allow a very large amount of
+                attached to my NAS of 144TB to allow a very large amount of
                 data to be uploaded without really running into any constraints.
                 It initially started out as a modification of the Puush screenshot client,
                 used by running hex-edited binaries to point to Maagic servers. Later,
@@ -443,7 +446,7 @@ export default class Home extends Component {
                 }
               ]}
             />
-            <PortfolioSocialLink
+            {/* <PortfolioSocialLink
               icon={faBlog}
               title="Blog"
               subtitle="Subscribe to my blog"
@@ -453,18 +456,7 @@ export default class Home extends Component {
                   title: 'Blog',
                 }
               ]}
-            />
-            <PortfolioSocialLink
-              icon={faTwitter}
-              title="Twitter"
-              subtitle="Follow me on Twitter"
-              links={[
-                {
-                  href: 'https://twitter.com/maxwlang/',
-                  title: 'Twitter',
-                }
-              ]}
-            />
+            /> */}
           </PortfolioSection>
         </main>
       </>

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start -p 8082",
     "lint": "next lint"
@@ -16,16 +16,16 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "bootstrap": "^4.6.0",
-    "next": "^11.1.4",
-    "react": "17.0.2",
+    "next": "15.1.5",
+    "react": "19.0.0",
     "react-bootstrap": "^1.6.1",
-    "react-dom": "17.0.2",
+    "react-dom": "19.0.0",
     "react-tsparticles": "^1.31.2",
     "rfs": "^9.0.4",
     "sass": "^1.35.2"
   },
   "devDependencies": {
     "eslint": "7.31.0",
-    "eslint-config-next": "11.0.1"
+    "eslint-config-next": "15.1.5"
   }
 }

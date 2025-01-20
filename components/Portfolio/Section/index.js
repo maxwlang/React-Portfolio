@@ -15,7 +15,7 @@ export default class Section extends Component {
 
     render() {
         return (
-            <div className={[styles.container, 'px-2 py-3 px-md-5 pt-md-4 pb-md-5'].join(' ')}>
+            (<div className={[styles.container, 'px-2 py-3 px-md-5 pt-md-4 pb-md-5'].join(' ')}>
                 {/* Optional header & subheader */}
                 {this.props.title || this.props.subtitle ?
                     <div className={styles.header}>
@@ -29,19 +29,17 @@ export default class Section extends Component {
                         : null}
                     </div>
                 : null}
-
                 {/* Inner content */}
                 <div className={styles.innerContent}>
                     <Row style={{ justifyContent: (this.props.spaceAround ? 'space-around' : 'unset') }}>
                         {this.props.children}
                     </Row>
                 </div>
-
                 {/* Optional next chevron */}
                 {this.props.scrollNextChevron ?
                     <div className={styles.chevronContainer}>
                         {/* eslint-disable-next-line @next/next/link-passhref */}
-                        <Link href={this.props.scrollNextChevronDestination}>
+                        <Link href={this.props.scrollNextChevronDestination} legacyBehavior>
                             <FontAwesomeIcon
                                 className={styles.chevron}
                                 icon={faChevronDown}
@@ -49,7 +47,7 @@ export default class Section extends Component {
                         </Link>
                     </div>
                 : null}
-            </div>
-        )
+            </div>)
+        );
     }
 };
