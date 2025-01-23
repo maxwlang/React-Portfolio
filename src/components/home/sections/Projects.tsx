@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import ScrollToBottom from "@/components/ScrollToBottom";
+import ScrollToBottom from "@/components/shared/ScrollToBottom";
 import projects, { Project } from "@/data/projects";
-import ProjectModal from "@/components/shared/ProjectModal";
-import ProjectCard from "@/components/shared/ProjectCard";
+import ProjectModal from "@/components/home/ProjectModal";
+import ProjectCard from "@/components/home/ProjectCard";
 import Section from "@/components/shared/Section";
 
 const Projects: React.FC = () => {

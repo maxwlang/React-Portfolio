@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image, { StaticImageData } from "next/image";
 import images from "@/images";
-import TypingText from "./TypingText";
+import TypingText from "../shared/TypingText";
 import phrases from "@/data/parallaxHeroPhrases";
 
 gsap.registerPlugin(ScrollTrigger);

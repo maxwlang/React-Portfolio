@@ -1,10 +1,10 @@
-import ParallaxHomeHero from "@/components/shared/ParallaxHomeHero";
-import Projects from "@/components/sections/Projects";
-import About from "@/components/sections/About";
+import ParallaxHomeHero from "@/components/home/ParallaxHomeHero";
+import Projects from "@/components/home/sections/Projects";
+import About from "@/components/home/sections/About";
 import images from "@/images";
-import Skills from "@/components/sections/Skills";
-import Certifications from "@/components/sections/Certifications";
-import Hobbies from "@/components/sections/HobbiesAndInterests";
+import Skills from "@/components/home/sections/Skills";
+import Certifications from "@/components/home/sections/Certifications";
+import Hobbies from "@/components/home/sections/HobbiesAndInterests";
 
 export default function Home() {
   return (
