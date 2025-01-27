@@ -168,7 +168,7 @@ const HobbyCard: React.FC<HobbyCardProps> = ({
       </div>
 
       <button
-        className="absolute top-4 right-4 bg-slate-700 px-2 py-1 rounded-xl hover:bg-slate-800 text-gray-100 hover:text-gray-200 transition-colors hover:scale-105 transition-transform"
+        className="absolute top-4 right-4 bg-black px-2 py-1 rounded-xl hover:bg-white text-gray-100 hover:text-black transition-colors hover:scale-105 transition-transform"
         onClick={onClose}
       >
         <FontAwesomeIcon icon={faTimes} className="fa-2x" />

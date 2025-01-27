@@ -16,9 +16,7 @@ const Projects: React.FC = () => {
       className="flex flex-col items-center justify-center"
     >
       <ScrollToBottom scrollToBottomText="Skip Projects">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-          Projects
-        </h2>
+        <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
 
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
           {projects.map((project, index) => (
