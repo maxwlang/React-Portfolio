@@ -1,6 +1,9 @@
 "use client";
+"use client";
 
-import navItems, { NavItem } from "@/data/navbarItems";
+import { usePathname } from "next/navigation";
+import navPages from "@/data/navbarItems";
+import { NavItem } from "@/data/navbarItems";
 import {
   faBars,
   faExternalLinkAlt,
@@ -13,6 +16,9 @@ const Navbar: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeItem, setActiveItem] = useState<NavItem>();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const navItems =
+    navPages.find((navPage) => navPage.path == pathname)?.items ?? [];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,13 +89,13 @@ const Navbar: React.FC = () => {
       <div className="flex items-center justify-between mx-auto p-4">
         <a href="https://maxwlang.com/" className="flex items-center space-x-3">
           <div
-            className={`transition-transform hover:scale-105 rounded p-2 transition-colors ${
+            className={`transition-transform hover:scale-105 rounded-xl p-2 transition-colors ${
               activeItem?.highlightLogo ? "bg-slate-500" : "bg-slate-700"
             }`}
           >
-            <div className="rounded bg-slate-800 px-2 py-1">
+            <div className="rounded-md bg-slate-800 px-2 py-1">
               <p
-                className="text-2xl font-bold tracking-[-.22em] text-transparent bg-clip-text bg-gradient-to-br from-slate-200 to-slate-500 animate-gradient"
+                className="text-2xl font-extrabold tracking-[-.23em] text-transparent bg-clip-text bg-gradient-to-br from-slate-200 to-slate-500 animate-gradient"
                 style={{ backgroundSize: "200% 200%" }}
               >
                 ML
@@ -100,7 +106,7 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Hamburger Menu */}
         <button
-          className={`sm:hidden text-slate-200 p-2  rounded font-bold transition-colors ${
+          className={`sm:hidden text-slate-200 p-2 rounded font-bold transition-colors ${
             !activeItem?.highlightLogo && "bg-slate-700"
           }`}
           onClick={() => setMobileMenuOpen(true)}
@@ -109,7 +115,7 @@ const Navbar: React.FC = () => {
         </button>
 
         {/* Desktop Navigation */}
-        <div className="hidden sm:flex space-x-4">
+        <div className="hidden sm:flex space-x-4 text-lg">
           {navItems
             .filter((item) => !item.hidden)
             .map((item) => (

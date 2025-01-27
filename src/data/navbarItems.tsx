@@ -1,8 +1,7 @@
-// TODO: Implement multi-page navigation
-// interface NavPage {
-//   path: string;
-//   items: NavItem[];
-// }
+export interface NavPage {
+  path: string;
+  items: NavItem[];
+}
 
 export interface NavItem {
   id: string;
@@ -13,7 +12,7 @@ export interface NavItem {
   hidden?: boolean;
 }
 
-const navItems: NavItem[] = [
+const homeNavItems: NavItem[] = [
   {
     id: "hero",
     label: "Home",
@@ -22,10 +21,10 @@ const navItems: NavItem[] = [
     hidden: true,
   },
   { id: "about", label: "About", href: "#about" },
-  { id: "skills", label: "Skills", href: "#skills" },
+  // { id: "skills", label: "Skills", href: "#skills" },
   { id: "projects", label: "Projects", href: "#projects" },
-  { id: "certifications", label: "Certifications", href: "#certifications" },
-  { id: "hobbies", label: "Hobbies", href: "#hobbies" },
+  // { id: "certifications", label: "Certifications", href: "#certifications" },
+  { id: "hobbies", label: "Hobbies & Interests", href: "#hobbies" },
   {
     id: "photoGallery",
     label: "Photo Gallery",
@@ -34,4 +33,11 @@ const navItems: NavItem[] = [
   },
 ];
 
-export default navItems;
+const navPages: NavPage[] = [
+  {
+    path: "/", // Home
+    items: homeNavItems,
+  },
+];
+
+export default navPages;
