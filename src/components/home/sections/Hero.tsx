@@ -8,6 +8,8 @@ import Image, { StaticImageData } from "next/image";
 import images from "@/images";
 import TypingText from "@/components/shared/TypingText";
 import phrases from "@/data/homeHeroPhrases";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,11 +23,13 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
   const parallaxBackground = useRef<HTMLDivElement>(null);
   const profilePictureContainer = useRef<HTMLDivElement>(null);
   const textContentContainer = useRef<HTMLDivElement>(null);
+  const foregroundContainer = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
+      // Move background image up by 10% slower than scroll
       gsap.to(parallaxBackground.current, {
-        yPercent: -10, // Moves the background image up by 20% slower than scroll
+        yPercent: -10,
         ease: "none",
         scrollTrigger: {
           trigger: container.current,
@@ -35,45 +39,79 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
         },
       });
 
-      ScrollTrigger.create({
-        trigger: container.current,
-        start: "top",
-        end: "bottom 60%",
-        scrub: true,
-        animation: gsap.fromTo(
-          profilePictureContainer.current,
-          {
-            width: () => profilePictureContainer.current?.offsetWidth || 16,
-            height: () => profilePictureContainer.current?.offsetHeight || 16,
-          },
-          {
-            width: () =>
-              (profilePictureContainer.current?.offsetWidth || 8) / 2,
-            height: () => profilePictureContainer.current?.offsetHeight || 16,
-            duration: 0.5,
-            ease: "power1.out",
-          }
-        ),
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top",
+          end: "bottom 60%",
+          scrub: true,
+        },
       });
 
-      ScrollTrigger.create({
-        trigger: container.current,
-        start: "top",
-        end: "bottom 60%",
-        scrub: true,
-        animation: gsap.fromTo(
-          textContentContainer.current,
-          {
-            opacity: 1,
-          },
-          {
-            opacity: 0,
-            y: "-20%",
-            duration: 1,
-            ease: "power1.out",
-          }
-        ),
+      // Resize picture
+      timeline.fromTo(
+        profilePictureContainer.current,
+        {
+          width: () => profilePictureContainer.current?.offsetWidth || 16,
+          height: () => profilePictureContainer.current?.offsetHeight || 16,
+        },
+        {
+          width: () => (profilePictureContainer.current?.offsetWidth || 8) / 2,
+          height: () => profilePictureContainer.current?.offsetHeight || 16,
+          duration: 0.5,
+          ease: "power1.out",
+        }
+      );
+
+      // Fade up and out content
+      timeline.to(foregroundContainer.current, {
+        opacity: 0,
+        y: "-20%",
+        duration: 1,
+        ease: "power1.out",
       });
+
+      // Initial animation
+      // ScrollTrigger.create({
+      //   trigger: container.current,
+      //   start: "top",
+      //   end: "bottom 60%",
+      //   scrub: true,
+      //   animation: gsap.fromTo(
+      //     profilePictureContainer.current,
+      //     {
+      //       width: () => profilePictureContainer.current?.offsetWidth || 16,
+      //       height: () => profilePictureContainer.current?.offsetHeight || 16,
+      //     },
+      //     {
+      //       width: () =>
+      //         (profilePictureContainer.current?.offsetWidth || 8) / 2,
+      //       height: () => profilePictureContainer.current?.offsetHeight || 16,
+      //       duration: 0.5,
+      //       ease: "power1.out",
+      //     }
+      //   ),
+      // });
+
+      // Move text content up and fade out
+      // ScrollTrigger.create({
+      //   trigger: container.current,
+      //   start: "top",
+      //   end: "bottom 60%",
+      //   scrub: true,
+      //   animation: gsap.fromTo(
+      //     textContentContainer.current,
+      //     {
+      //       opacity: 1,
+      //     },
+      //     {
+      //       opacity: 0,
+      //       y: "-20%",
+      //       duration: 1,
+      //       ease: "power1.out",
+      //     }
+      //   ),
+      // });
     },
     {
       scope: container,
@@ -106,7 +144,7 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
       <div className="absolute inset-0 bg-black opacity-20 dark:opacity-50" />
 
       {/* Foreground Content */}
-      <div className="relative z-10">
+      <div ref={foregroundContainer} className="relative z-10">
         <div className="flex justify-center items-center flex-col">
           <div
             ref={profilePictureContainer}
@@ -121,11 +159,11 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
               priority
             />
           </div>
-          <div ref={textContentContainer}>
-            <h1 className="text-white text-4xl md:mb-2 md:text-6xl font-bold text-center">
+          <div ref={textContentContainer} className="text-white">
+            <h1 className="text-4xl md:mb-2 md:text-6xl font-bold text-center">
               Maxwell Lang
             </h1>
-            <p className="text-white text-center leading-tight font-light text-2xl md:text-4xl">
+            <p className="text-center leading-tight font-light text-2xl md:text-4xl">
               <span className="block">
                 <TypingText phrases={phrases} waitTime={2000} />
                 for
@@ -134,6 +172,9 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
                 {new Date().getFullYear() - 2018} years and counting.
               </span>
             </p>
+            <div className="animated-content text-center mt-6 animate-bounce">
+              <FontAwesomeIcon icon={faChevronDown} className="fa-2x" />
+            </div>
           </div>
         </div>
       </div>
