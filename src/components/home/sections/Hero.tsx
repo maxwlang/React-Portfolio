@@ -6,20 +6,17 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image, { StaticImageData } from "next/image";
 import images from "@/images";
-import TypingText from "../shared/TypingText";
-import phrases from "@/data/parallaxHeroPhrases";
+import TypingText from "@/components/shared/TypingText";
+import phrases from "@/data/homeHeroPhrases";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface ParallaxHeroProps {
+interface HeroProps {
   id?: string;
   backgroundImage: StaticImageData; // Image source for parallax effect
 }
 
-export const ParallaxHero: React.FC<ParallaxHeroProps> = ({
-  id,
-  backgroundImage,
-}) => {
+export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
   const container = useRef<HTMLDivElement>(null);
   const parallaxBackground = useRef<HTMLDivElement>(null);
   const profilePictureContainer = useRef<HTMLDivElement>(null);
@@ -144,4 +141,4 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({
   );
 };
 
-export default ParallaxHero;
+export default Hero;

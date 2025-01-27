@@ -1,19 +1,19 @@
-import ParallaxHomeHero from "@/components/home/ParallaxHomeHero";
-import Projects from "@/components/home/sections/Projects";
+import Hero from "@/components/home/sections/Hero";
 import About from "@/components/home/sections/About";
-import images from "@/images";
-import Skills from "@/components/home/sections/Skills";
-import Certifications from "@/components/home/sections/Certifications";
+// import Skills from "@/components/home/sections/Skills";
+import Projects from "@/components/home/sections/Projects";
+// import Certifications from "@/components/home/sections/Certifications";
 import Hobbies from "@/components/home/sections/HobbiesAndInterests";
+import images from "@/images";
 
 export default function Home() {
   return (
     <>
-      <ParallaxHomeHero id="hero" backgroundImage={images.photoSanFrancisco} />
+      <Hero id="hero" backgroundImage={images.photoSanFrancisco} />
       <About />
-      <Skills />
+      {/* <Skills /> */}
       <Projects />
-      <Certifications />
+      {/* <Certifications /> */}
       <Hobbies />
     </>
   );
