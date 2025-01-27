@@ -1,11 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import { HobbyAndInterest } from "@/data/hobbiesAndInterests";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface HobbyGridProps {
   hobbies: HobbyAndInterest[];
@@ -13,6 +18,28 @@ interface HobbyGridProps {
 
 const HobbyGrid: React.FC<HobbyGridProps> = ({ hobbies }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const container = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const cards = gsap.utils.toArray(".hobby-grid-card");
+
+    gsap.fromTo(
+      cards,
+      { scale: 0, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.6,
+        stagger: 0.05,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top 80%", // When the top of the container is 80% down the viewport
+          end: "bottom top",
+        },
+      }
+    );
+  }, []);
 
   const handleItemClick = (index: number) => {
     setActiveIndex(index);
@@ -23,7 +50,7 @@ const HobbyGrid: React.FC<HobbyGridProps> = ({ hobbies }) => {
   };
 
   return (
-    <div className="w-full max-w-screen-sm mx-auto relative">
+    <div ref={container} className="w-full max-w-screen-sm mx-auto relative">
       <div className="grid grid-cols-3 gap-4">
         {hobbies.map((hobby, index) => (
           <HobbyGridCard
@@ -65,7 +92,7 @@ const HobbyGridCard: React.FC<HobbyGridCardProps> = ({
       key={index}
       layoutId={`card-${index}`}
       onClick={() => onClick()}
-      className={`aspect-square relative shadow-2xl rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer ${
+      className={`hobby-grid-card aspect-square relative shadow-2xl rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer ${
         activeIndex !== null && activeIndex !== index ? "opacity-50" : ""
       }`}
       initial={{ opacity: 1 }}
@@ -131,11 +158,9 @@ const HobbyCard: React.FC<HobbyCardProps> = ({
         <div className="absolute bg-black bg-opacity-10 dark:bg-opacity-20 inset-0" />
 
         <div className="absolute inset-0 flex flex-col justify-end px-5 pb-6">
-          {/* md:text-8xl */}
           <h3 className="text-white font-extrabold text-4xl sm:text-7xl mb-2">
             {hobby.title}
           </h3>
-          {/* md:text-4xl */}
           <p className="text-white font-semibold text-lg sm:text-3xl">
             {hobby.description}
           </p>
