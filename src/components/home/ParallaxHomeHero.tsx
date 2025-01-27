@@ -23,6 +23,7 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({
   const container = useRef<HTMLDivElement>(null);
   const parallaxBackground = useRef<HTMLDivElement>(null);
   const profilePictureContainer = useRef<HTMLDivElement>(null);
+  const textContentContainer = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -31,16 +32,16 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({
         ease: "none",
         scrollTrigger: {
           trigger: container.current,
-          start: "top top", // Parallax effect starts when the section enters the viewport
-          end: "bottom top", // Ends when the section exits the viewport
+          start: "top top",
+          end: "bottom top",
           scrub: true,
         },
       });
 
       ScrollTrigger.create({
         trigger: container.current,
-        start: "top", // Start when the section is in view
-        end: "bottom 60%", // End when 30% of the section is in view
+        start: "top",
+        end: "bottom 60%",
         scrub: true,
         animation: gsap.fromTo(
           profilePictureContainer.current,
@@ -57,6 +58,25 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({
           }
         ),
       });
+
+      ScrollTrigger.create({
+        trigger: container.current,
+        start: "top",
+        end: "bottom 60%",
+        scrub: true,
+        animation: gsap.fromTo(
+          textContentContainer.current,
+          {
+            opacity: 1,
+          },
+          {
+            opacity: 0,
+            y: "-20%",
+            duration: 1,
+            ease: "power1.out",
+          }
+        ),
+      });
     },
     {
       scope: container,
@@ -68,7 +88,7 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({
     <section
       ref={container}
       id={id}
-      className="relative h-screen flex justify-center items-center overflow-hidden"
+      className="relative h-screen flex justify-center items-center overflow-hidden bg-white-100 dark:bg-slate-600"
     >
       {/* Background for Parallax Effect */}
       <div
@@ -90,7 +110,7 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({
 
       {/* Foreground Content */}
       <div className="relative z-10">
-        <div className="flex justify-center items-center flex-col ">
+        <div className="flex justify-center items-center flex-col">
           <div
             ref={profilePictureContainer}
             className="mb-6 relative h-48 w-48 md:h-64 md:w-64 rounded-full overflow-hidden"
@@ -104,11 +124,11 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({
               priority
             />
           </div>
-          <div>
+          <div ref={textContentContainer}>
             <h1 className="text-white text-4xl md:mb-2 md:text-6xl font-bold text-center">
               Maxwell Lang
             </h1>
-            <p className="text-white text-center  leading-tight text-2xl md:text-4xl">
+            <p className="text-white text-center leading-tight font-light text-2xl md:text-4xl">
               <span className="block">
                 <TypingText phrases={phrases} waitTime={2000} />
                 for
