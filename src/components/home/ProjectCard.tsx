@@ -22,7 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewMore }) => {
     : description;
 
   return (
-    <div className="break-inside-avoid mb-6 sm:mb-8 bg-white rounded-lg shadow-lg p-6 flex flex-col max-w-sm lg:max-w-md mx-auto transform transition-transform hover:scale-105 hover:shadow-2xl">
+    <div className="break-inside-avoid mb-6 sm:mb-8 bg-white rounded-lg shadow-lg p-6 flex flex-col max-w-sm transform transition-transform hover:scale-105 hover:shadow-2xl">
       <Image
         src={image}
         alt={title}

@@ -11,29 +11,30 @@ const Projects: React.FC = () => {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   return (
-    <Section id="projects">
+    <Section
+      id="projects"
+      className="flex flex-col items-center justify-center"
+    >
       <ScrollToBottom scrollToBottomText="Skip Projects">
-        <div className="max-w-5xl w-full">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-            Projects
-          </h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+          Projects
+        </h2>
 
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
-            {projects.map((project, index) => (
-              <ProjectCard
-                key={index}
-                project={project}
-                onViewMore={() => setActiveProject(project)}
-              />
-            ))}
-          </div>
-          {activeProject && (
-            <ProjectModal
-              project={activeProject}
-              onClose={() => setActiveProject(null)}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              project={project}
+              onViewMore={() => setActiveProject(project)}
             />
-          )}
+          ))}
         </div>
+        {activeProject && (
+          <ProjectModal
+            project={activeProject}
+            onClose={() => setActiveProject(null)}
+          />
+        )}
       </ScrollToBottom>
     </Section>
   );
