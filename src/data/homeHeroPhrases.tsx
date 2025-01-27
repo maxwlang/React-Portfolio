@@ -4,6 +4,7 @@ const phrases: string[] = [
   "Having fun",
   "Learning new things",
   "Dreaming",
+  "Future forward",
 ];
 
 export default phrases;
