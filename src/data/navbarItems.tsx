@@ -20,7 +20,7 @@ const homeNavItems: NavItem[] = [
     highlightLogo: true,
     hidden: true,
   },
-  { id: "about", label: "About", href: "#about" },
+  { id: "about-section", label: "About", href: "#about" },
   // { id: "skills", label: "Skills", href: "#skills" },
   { id: "projects", label: "Projects", href: "#projects" },
   // { id: "certifications", label: "Certifications", href: "#certifications" },
