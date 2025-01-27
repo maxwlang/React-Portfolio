@@ -15,6 +15,16 @@ import cardAiMail from "../public/projects/card-ai-mail.png";
 import cardPortfolio from "../public/projects/card-portfolio.png";
 import cardOpenSWC from "../public/projects/card-openswc-fusion.png";
 
+import hobby3DPrinting from "../public/hobbies/3d-printing.png";
+import hobbyPhotography from "../public/hobbies/photography.jpg";
+import hobbyMusic from "../public/hobbies/music.png";
+// import hobbyVideoGames from "../public/hobbies/video-games.png";
+import hobbyTraveling from "../public/hobbies/traveling.png";
+import hobbyCooking from '../public/hobbies/cooking.jpg';
+import hobbyHomelabbing from "../public/hobbies/homelabbing.jpg";
+import hobbyCoffee from "../public/hobbies/coffee.png";
+import hobbyHockey from "../public/hobbies/hockey.png";
+
 import certificateAPlus from "../public/certificates/comptia-a-plus.png";
 import certificateNetworkPlus from "../public/certificates/comptia-network-plus.png";
 // import certificateSecurityPlus from "../public/certificates/comptia-security-plus.png";
@@ -39,19 +49,22 @@ const images = {
   cardMonthlicon,
   cardWebtss,
   cardAiMail,
+  // TODO: add real images
+  cardQuickShare: cardPortfolio,
+  cardHomeLab: cardPortfolio,
   cardPortfolio,
   cardOpenSWC,
 
   // TODO: add real images
-  hobby3DPrinting: photoCrab,
-  hobbyPhotography: photoCrab,
-  hobbyMusic: photoCrab,
+  hobby3DPrinting,
+  hobbyPhotography,
+  hobbyMusic,
   hobbyVideoGames: photoCrab,
-  hobbyTraveling: photoCrab,
-  hobbyCooking: photoCrab,
-  hobbyHomelabbing: photoCrab,
-  hobbyCoffee: photoCrab,
-  hobbyHockey: photoCrab,
+  hobbyTraveling,
+  hobbyCooking,
+  hobbyHomelabbing,
+  hobbyCoffee,
+  hobbyHockey,
 
   certificateAPlus,
   certificateNetworkPlus,
