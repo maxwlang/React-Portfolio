@@ -72,6 +72,7 @@ const Navbar: React.FC = () => {
       const targetElement = document.querySelector(item.href);
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState({}, "", item.href);
       }
       setMobileMenuOpen(false);
     }
