@@ -146,6 +146,7 @@ const HobbyCard: React.FC<HobbyCardProps> = ({
       transition={{ duration: 0.3 }}
     >
       <div className="aspect-square w-full bg-black rounded-3xl shadow-md relative overflow-hidden">
+        {/* TODO: Optional carousel support */}
         <Image
           src={hobby.image}
           alt={hobby.title}

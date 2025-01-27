@@ -6,7 +6,7 @@ const Certifications: React.FC = () => {
     <Section id="certifications">
       <h2 className="text-4xl font-bold text-center mb-12">Certifications</h2>
       <div>
-        <h2>TODO: add certs</h2>
+        <h2></h2>
       </div>
     </Section>
   );
