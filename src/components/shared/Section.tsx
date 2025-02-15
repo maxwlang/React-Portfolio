@@ -8,8 +8,7 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({ id, ref, className, children }) => {
-  const baseClassNames =
-    "bg-gradient-to-b from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-900 py-16 px-4 sm:px-8 lg:px-16";
+  const baseClassNames = "py-16 px-4 sm:px-8 lg:px-16";
 
   return (
     <section

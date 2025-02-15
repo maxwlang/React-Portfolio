@@ -22,19 +22,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewMore }) => {
     : description;
 
   return (
-    <div className="break-inside-avoid mb-6 sm:mb-8 bg-white rounded-lg shadow-lg p-6 flex flex-col max-w-sm transform transition-transform hover:scale-105 hover:shadow-2xl">
-      <Image
-        src={image}
-        alt={title}
-        className="rounded-t-md w-full mb-4 object-cover h-40"
-      />
-      <h3 className="text-2xl font-semibold text-gray-700">{title}</h3>
-      {subtitle && <h4 className="text-sm text-gray-500 mb-2">{subtitle}</h4>}
-      <p className="text-gray-600 text-sm mb-4">
+    // TODO: fix color
+    // TODO: fix strange behavior in desktop safari
+    <div className="break-inside-avoid bg-background dark:bg-slate-900 text-foreground mb-6 sm:mb-8 rounded-lg shadow-lg p-6 flex flex-col max-w-sm transform transition-transform hover:scale-105 hover:shadow-2xl">
+      {image && (
+        <Image
+          src={image}
+          alt={title}
+          className="rounded-t-md w-full mb-4 object-cover h-40"
+        />
+      )}
+      <h3 className="text-2xl font-semibold">{title}</h3>
+      {subtitle && <h4 className="text-sm text-gray-400 mb-2">{subtitle}</h4>}
+      <p className="text-sm mb-4">
         {truncatedDescription}
         {isLongDescription && (
           <>
-            <span className="text-gray-500">...</span>{" "}
+            <span className="text-gray-400">...</span>{" "}
             <button
               onClick={onViewMore}
               className="text-blue-500 hover:underline text-sm inline-flex items-center"
@@ -65,7 +69,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewMore }) => {
         {tags.map((tag, i) => (
           <span
             key={i}
-            className="bg-blue-100 text-blue-700 text-xs font-medium px-2 py-1 rounded-full"
+            className="bg-slate-800 border-slate-700 dark:bg-slate-900 dark:border-slate-800 border text-blue-700 text-xs font-medium px-2 py-1 rounded-full"
           >
             {tag}
           </span>

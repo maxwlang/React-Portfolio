@@ -25,12 +25,12 @@ const homeNavItems: NavItem[] = [
   { id: "projects", label: "Projects", href: "#projects" },
   // { id: "certifications", label: "Certifications", href: "#certifications" },
   { id: "hobbies", label: "Hobbies & Interests", href: "#hobbies" },
-  {
-    id: "photoGallery",
-    label: "Photo Gallery",
-    href: "https://gallery.maxwlang.com",
-    newTab: true,
-  },
+  // {
+  //   id: "photoGallery",
+  //   label: "Photo Gallery",
+  //   href: "https://gallery.maxwlang.com",
+  //   newTab: true,
+  // },
 ];
 
 const navPages: NavPage[] = [

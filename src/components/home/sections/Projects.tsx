@@ -13,7 +13,7 @@ const Projects: React.FC = () => {
   return (
     <Section
       id="projects"
-      className="flex flex-col items-center justify-center"
+      className="flex flex-col items-center justify-center bg-gradient-to-b from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-900"
     >
       <ScrollToBottom scrollToBottomText="Skip Projects">
         <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>

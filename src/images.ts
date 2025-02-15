@@ -19,7 +19,7 @@ import cardOpenSWC from "../public/projects/card-openswc-fusion.png";
 import hobby3DPrinting from "../public/hobbies/3d-printing.png";
 import hobbyPhotography from "../public/hobbies/photography.jpg";
 import hobbyMusic from "../public/hobbies/music.png";
-// import hobbyVideoGames from "../public/hobbies/video-games.png";
+import hobbyVideoGames from "../public/hobbies/gaming.jpg";
 import hobbyTraveling from "../public/hobbies/traveling.png";
 import hobbyTraveling2 from "../public/hobbies/traveling2.png";
 import hobbyCooking from '../public/hobbies/cooking.jpg';
@@ -62,7 +62,7 @@ const images = {
   hobby3DPrinting,
   hobbyPhotography,
   hobbyMusic,
-  hobbyVideoGames: photoCrab,
+  hobbyVideoGames,
   hobbyTraveling,
   hobbyTraveling2,
   hobbyCooking,
