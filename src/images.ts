@@ -60,7 +60,6 @@ const images = {
   cardHarbinger,
   // cardGithub,
 
-  // TODO: add real images
   hobby3DPrinting,
   hobbyPhotography,
   hobbyMusic,

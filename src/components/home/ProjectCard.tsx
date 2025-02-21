@@ -23,8 +23,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewMore }) => {
     : description;
 
   return (
-    // TODO: fix strange behavior in desktop safari
-    <div className="break-inside-avoid bg-foreground dark:bg-slate-900 dark:text-foreground mb-6 sm:mb-8 rounded-lg dark:shadow-lg shadow-xl p-6 flex flex-col max-w-sm transform transition-transform hover:scale-105 hover:shadow-2xl">
+    <div className="will-change-transform break-inside-avoid bg-foreground dark:bg-slate-900 dark:text-foreground mb-6 sm:mb-8 rounded-lg dark:shadow-lg shadow-xl p-6 flex flex-col max-w-sm transform transition-transform hover:scale-105 hover:shadow-2xl">
       {image && (
         <Image
           src={image}

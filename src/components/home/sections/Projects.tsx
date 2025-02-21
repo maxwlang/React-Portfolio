@@ -18,7 +18,7 @@ const Projects: React.FC = () => {
       <ScrollToBottom scrollToBottomText="Skip Projects">
         <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
 
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 mb-32">
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
