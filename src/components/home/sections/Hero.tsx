@@ -24,6 +24,7 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
   const profilePictureContainer = useRef<HTMLDivElement>(null);
   const textContentContainer = useRef<HTMLDivElement>(null);
   const foregroundContainer = useRef<HTMLDivElement>(null);
+  const scrollChevronContainer = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -63,6 +64,13 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
         }
       );
 
+      // Hide scroll chevron
+      timeline.to(scrollChevronContainer.current, {
+        duration: 1,
+        opacity: 0,
+        ease: "power1.out",
+      });
+
       // Fade up and out content
       timeline.to(foregroundContainer.current, {
         opacity: 0,
@@ -70,48 +78,6 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
         duration: 1,
         ease: "power1.out",
       });
-
-      // Initial animation
-      // ScrollTrigger.create({
-      //   trigger: container.current,
-      //   start: "top",
-      //   end: "bottom 60%",
-      //   scrub: true,
-      //   animation: gsap.fromTo(
-      //     profilePictureContainer.current,
-      //     {
-      //       width: () => profilePictureContainer.current?.offsetWidth || 16,
-      //       height: () => profilePictureContainer.current?.offsetHeight || 16,
-      //     },
-      //     {
-      //       width: () =>
-      //         (profilePictureContainer.current?.offsetWidth || 8) / 2,
-      //       height: () => profilePictureContainer.current?.offsetHeight || 16,
-      //       duration: 0.5,
-      //       ease: "power1.out",
-      //     }
-      //   ),
-      // });
-
-      // Move text content up and fade out
-      // ScrollTrigger.create({
-      //   trigger: container.current,
-      //   start: "top",
-      //   end: "bottom 60%",
-      //   scrub: true,
-      //   animation: gsap.fromTo(
-      //     textContentContainer.current,
-      //     {
-      //       opacity: 1,
-      //     },
-      //     {
-      //       opacity: 0,
-      //       y: "-20%",
-      //       duration: 1,
-      //       ease: "power1.out",
-      //     }
-      //   ),
-      // });
     },
     {
       scope: container,
@@ -123,7 +89,7 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
     <section
       ref={container}
       id={id}
-      className="relative h-screen flex justify-center items-center overflow-hidden bg-white-100 dark:bg-slate-600"
+      className="relative h-screen flex flex-col justify-center items-center overflow-hidden bg-white-100 dark:bg-slate-600"
     >
       {/* Background for Parallax Effect */}
       <div
@@ -172,10 +138,13 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
                 {new Date().getFullYear() - 2018} years and counting.
               </span>
             </p>
-            <div className="animated-content text-center mt-6 animate-bounce">
-              <FontAwesomeIcon icon={faChevronDown} className="fa-2x" />
-            </div>
           </div>
+        </div>
+      </div>
+
+      <div ref={scrollChevronContainer} className="relative z-10">
+        <div className="text-center mt-6 animate-bounce">
+          <FontAwesomeIcon icon={faChevronDown} className="fa-2x" />
         </div>
       </div>
     </section>

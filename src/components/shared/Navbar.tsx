@@ -17,8 +17,9 @@ const Navbar: React.FC = () => {
   const [activeItem, setActiveItem] = useState<NavItem>();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const navItems =
-    navPages.find((navPage) => navPage.path == pathname)?.items ?? [];
+  const navItems = React.useMemo(() => {
+    return navPages.find((navPage) => navPage.path == pathname)?.items ?? [];
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +62,7 @@ const Navbar: React.FC = () => {
     return () => {
       sections.forEach((section) => observer.unobserve(section));
     };
-  }, []);
+  }, [navItems]);
 
   const handleNavigationClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
