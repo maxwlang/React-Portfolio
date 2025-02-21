@@ -105,7 +105,7 @@ const About: React.FC = () => {
 
       {/* Foreground Content */}
       <div ref={scrollChevronContainer} className="relative z-10">
-        <div className="text-center mt-6 animate-bounce">
+        <div className="text-center mt-6 animate-bounce text-white">
           <FontAwesomeIcon icon={faChevronDown} className="fa-2x" />
         </div>
       </div>
