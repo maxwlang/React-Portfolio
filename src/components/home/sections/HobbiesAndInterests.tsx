@@ -10,7 +10,9 @@ const HobbiesAndInterests: React.FC = () => {
         Hobbies &amp; Interests
       </h2>
 
-      <HobbyGrid hobbies={hobbiesAndInterests} />
+      <div className="mb-12">
+        <HobbyGrid hobbies={hobbiesAndInterests} />
+      </div>
     </Section>
   );
 };
