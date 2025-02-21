@@ -99,6 +99,23 @@ const projects: Project[] = [
   // },
   {
     // Complete
+    title: "Harbinger",
+    subtitle: "A flexible RSS Feed to Discord webhook translation utility",
+    tags: ["Typescript", "Automation", "2025"],
+    image: images.cardHarbinger,
+    links: [
+      {
+        title: "GitHub Repository",
+        url: "https://github.com/maxwlang/harbinger",
+        variant: "primary",
+        icon: faGithub,
+      },
+    ],
+    description:
+      "Harbinger is a utility that translates RSS feeds to Discord webhooks. It is designed to be flexible and easy to use, with support for multiple feeds, webhooks, and custom formatting. I built Harbinger after being dissatisfied with current options on the internet, many services were not flexible enough to support the RSS feeds I was interested in tracking, others cost 8 dollars a month or more, and restricted the amount off feeds you could monitor. Harbinger can be used to automate the delivery of news, updates, and notifications to Discord servers, enabling users to stay informed and up to date on news they care about.",
+  },
+  {
+    // Complete
     title: "OpenSWC: Fusion",
     subtitle:
       "An Arduino interface that bridges the ford fusion Steering Wheel Controls to an aftermarket head unit",

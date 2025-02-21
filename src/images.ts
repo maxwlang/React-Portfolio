@@ -14,6 +14,7 @@ import cardWebtss from "../public/projects/card-webtss.jpg";
 import cardAiMail from "../public/projects/card-ai-mail.png";
 import cardPortfolio from "../public/projects/card-portfolio.png";
 import cardOpenSWC from "../public/projects/card-openswc-fusion.png";
+import cardHarbinger from '../public/projects/card-harbinger.png';
 // import cardGithub from "../public/projects/card-github.png";
 
 import hobby3DPrinting from "../public/hobbies/3d-printing.png";
@@ -56,6 +57,7 @@ const images = {
   cardHomeLab: cardPortfolio,
   cardPortfolio,
   cardOpenSWC,
+  cardHarbinger,
   // cardGithub,
 
   // TODO: add real images
