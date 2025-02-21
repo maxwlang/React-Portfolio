@@ -6,6 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import LinkButton from "@/components/shared/LinkButton";
+import TextPill from "../shared/TextPill";
 
 interface ProjectCardProps {
   project: Project;
@@ -22,9 +23,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewMore }) => {
     : description;
 
   return (
-    // TODO: fix color
     // TODO: fix strange behavior in desktop safari
-    <div className="break-inside-avoid bg-background dark:bg-slate-900 text-foreground mb-6 sm:mb-8 rounded-lg shadow-lg p-6 flex flex-col max-w-sm transform transition-transform hover:scale-105 hover:shadow-2xl">
+    <div className="break-inside-avoid bg-foreground dark:bg-slate-900 dark:text-foreground mb-6 sm:mb-8 rounded-lg dark:shadow-lg shadow-xl p-6 flex flex-col max-w-sm transform transition-transform hover:scale-105 hover:shadow-2xl">
       {image && (
         <Image
           src={image}
@@ -33,7 +33,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewMore }) => {
         />
       )}
       <h3 className="text-2xl font-semibold">{title}</h3>
-      {subtitle && <h4 className="text-sm text-gray-400 mb-2">{subtitle}</h4>}
+      {subtitle && (
+        <h4 className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+          {subtitle}
+        </h4>
+      )}
       <p className="text-sm mb-4">
         {truncatedDescription}
         {isLongDescription && (
@@ -67,12 +71,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewMore }) => {
       )}
       <div className="flex flex-wrap gap-2 mt-auto">
         {tags.map((tag, i) => (
-          <span
-            key={i}
-            className="bg-slate-800 border-slate-700 dark:bg-slate-900 dark:border-slate-800 border text-blue-700 text-xs font-medium px-2 py-1 rounded-full"
-          >
-            {tag}
-          </span>
+          <TextPill key={i} text={tag} />
         ))}
       </div>
     </div>

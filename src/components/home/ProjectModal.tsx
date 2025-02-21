@@ -11,6 +11,7 @@ import {
 import { Fragment } from "react";
 import Image from "next/image";
 import LinkButton from "@/components/shared/LinkButton";
+import TextPill from "@/components/shared/TextPill";
 
 interface ProjectModalProps {
   project: Project;
@@ -45,30 +46,31 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="bg-white rounded-lg shadow-xl max-w-2xl w-full p-6 relative">
+              <DialogPanel className="bg-foreground dark:bg-slate-900 dark:text-foreground rounded-lg shadow-xl max-w-2xl w-full p-6 relative">
                 <button
                   onClick={onClose}
                   className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
                 >
                   <FontAwesomeIcon icon={faTimes} className="fa-lg" />
                 </button>
-                <Image
-                  src={image}
-                  alt={title}
-                  className="rounded-lg w-full mt-6 mb-4 object-cover h-60"
-                />
-                <DialogTitle
-                  as="h3"
-                  className="text-3xl font-bold text-gray-800 mb-2"
-                >
+                {image && (
+                  <Image
+                    src={image}
+                    alt={title}
+                    className="rounded-lg w-full mt-6 mb-4 object-cover h-60"
+                  />
+                )}
+                <DialogTitle as="h3" className="text-3xl font-bold mb-2">
                   {title}
                 </DialogTitle>
                 {subtitle && (
-                  <h4 className="text-sm text-gray-500 mb-4">{subtitle}</h4>
+                  <h4 className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                    {subtitle}
+                  </h4>
                 )}
-                <p className="text-gray-600 text-sm">{description}</p>
+                <p className="text-sm pr-10 text-justify">{description}</p>
                 {links && (
-                  <div className="flex flex-wrap gap-2 mt-4">
+                  <div className="flex flex-wrap gap-2 mt-6">
                     {links.map((link, i) => (
                       <LinkButton
                         key={i}
@@ -82,12 +84,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 )}
                 <div className="flex flex-wrap gap-2 mt-4">
                   {tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="bg-blue-100 text-blue-700 text-xs font-medium px-2 py-1 rounded-full"
-                    >
-                      {tag}
-                    </span>
+                    <TextPill key={i} text={tag} />
                   ))}
                 </div>
               </DialogPanel>

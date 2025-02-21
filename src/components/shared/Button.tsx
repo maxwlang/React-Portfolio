@@ -1,10 +1,11 @@
 import React from "react";
 
 export interface ButtonProps {
-  text: string;
+  text: string | React.ReactNode;
   onClick?: () => void;
   variant?: "primary" | "secondary" | "danger";
   type?: "button" | "submit" | "reset";
+  className?: string;
   disabled?: boolean;
 }
 
@@ -14,12 +15,14 @@ const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   type = "button",
   disabled = false,
+  className,
 }) => {
-  const baseStyles =
-    "px-4 py-2 font-semibold text-sm rounded focus:outline-none focus:ring";
+  const baseStyles = `inline-flex items-center px-4 py-2 font-semibold text-sm rounded focus:outline-none focus:ring transition-all ease-in-out duration-200 ${className}`;
   const variants = {
-    primary: "bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-300",
-    secondary: "bg-gray-200 text-black hover:bg-gray-300 focus:ring-gray-300",
+    primary:
+      "bg-background text-foreground dark:text-white hover:bg-foreground hover:text-background focus:ring-blue-300",
+    secondary:
+      "border border-background dark:bg-gray-200 text-black hover:bg-gray-300 focus:ring-gray-300",
     danger: "bg-red-500 text-white hover:bg-red-600 focus:ring-red-300",
   };
 

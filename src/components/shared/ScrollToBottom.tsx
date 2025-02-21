@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import Button from "@/components/shared/Button";
 
 interface ScrollToBottomProps {
   children: React.ReactNode;
@@ -51,13 +52,19 @@ const ScrollToBottom: React.FC<ScrollToBottomProps> = ({
     <div ref={contentRef} className="relative">
       {children}
       {showButton && (
-        <button
-          className="fixed bottom-4 right-4 bg-blue-500 text-white py-2 px-4 rounded shadow-md hover:bg-blue-600 focus:outline-none"
+        <Button
+          className="fixed bottom-4 right-4"
           onClick={scrollToBottom}
-        >
-          {showIcons && <FontAwesomeIcon icon={faArrowDown} className="mr-2" />}
-          {scrollToBottomText}
-        </button>
+          text={
+            <>
+              {showIcons && (
+                <FontAwesomeIcon icon={faArrowDown} className="mr-2" />
+              )}
+              {scrollToBottomText}
+            </>
+          }
+          variant="primary"
+        />
       )}
     </div>
   );
