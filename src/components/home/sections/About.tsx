@@ -13,6 +13,7 @@ const About: React.FC = () => {
   const animatedSection = useRef<HTMLDivElement>(null);
   const parallaxBackground = useRef<HTMLDivElement>(null);
   const scrollChevronContainer = useRef<HTMLDivElement>(null);
+  // const contentContainer = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -37,6 +38,13 @@ const About: React.FC = () => {
         end: "bottom top",
         scrub: true,
         pin: true,
+        // onEnter: () => {
+        //   gsap.to(window, {
+        //     duration: 1,
+        //     scrollTo: { y: contentContainer.current, offsetY: -200 },
+        //     ease: "power2.inOut",
+        //   });
+        // },
       },
     });
 
@@ -123,6 +131,7 @@ const About: React.FC = () => {
             <span className="font-semibold">CAD &amp; 3D Printing</span>, and{" "}
             <span className="font-semibold">homelab projects</span>.
           </p>
+          {/* <div ref={contentContainer} className="block" /> */}
         </div>
       </div>
     </Section>
