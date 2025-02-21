@@ -12,6 +12,8 @@ import images from "@/images";
 const About: React.FC = () => {
   const animatedSection = useRef<HTMLDivElement>(null);
   const parallaxBackground = useRef<HTMLDivElement>(null);
+  const scrollChevronContainer = useRef<HTMLDivElement>(null);
+  // const contentContainer = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -29,8 +31,40 @@ const About: React.FC = () => {
       },
     });
 
-    // Fade in content
-    gsap.fromTo(
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: animatedSection.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+        pin: true,
+        // onEnter: () => {
+        //   gsap.to(window, {
+        //     duration: 1,
+        //     scrollTo: { y: contentContainer.current, offsetY: -200 },
+        //     ease: "power2.inOut",
+        //   });
+        // },
+      },
+    });
+
+    timeline.fromTo(
+      scrollChevronContainer.current,
+      {
+        position: "absolute",
+        top: "5%",
+        fontSize: "1.5rem",
+      },
+      {
+        position: "absolute",
+        top: "70%",
+        fontSize: "1.25rem",
+        duration: 1.5,
+        ease: "power1.out",
+      }
+    );
+
+    timeline.fromTo(
       animatedContent,
       {
         opacity: 0,
@@ -39,13 +73,6 @@ const About: React.FC = () => {
       {
         opacity: 1,
         y: 0,
-        scrollTrigger: {
-          trigger: animatedSection.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-          pin: true,
-        },
         stagger: 0.3,
         duration: 1,
       }
@@ -77,6 +104,12 @@ const About: React.FC = () => {
       <div className="absolute inset-0 bg-black opacity-20 dark:opacity-50" />
 
       {/* Foreground Content */}
+      <div ref={scrollChevronContainer} className="relative z-10">
+        <div className="text-center mt-6 animate-bounce">
+          <FontAwesomeIcon icon={faChevronDown} className="fa-2x" />
+        </div>
+      </div>
+
       <div className="relative z-10">
         <div id="about" className="max-w-xl text-white">
           <h2 className="animated-content text-4xl md:text-5xl lg:text-6xl mr-20 font-bold">
@@ -98,9 +131,7 @@ const About: React.FC = () => {
             <span className="font-semibold">CAD &amp; 3D Printing</span>, and{" "}
             <span className="font-semibold">homelab projects</span>.
           </p>
-          <div className="animated-content text-center mt-6 animate-bounce">
-            <FontAwesomeIcon icon={faChevronDown} className="fa-2x" />
-          </div>
+          {/* <div ref={contentContainer} className="block" /> */}
         </div>
       </div>
     </Section>

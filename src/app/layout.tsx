@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Maxwell Lang",
   description:
-    "Software engineer, tinkerer, and photographer. Breathing information.",
+    "Software engineer, tinkerer, and photographer. Welcome to my portfolio.",
   metadataBase: new URL("https://maxwlang.com"),
   keywords: [
     "Maxwell Lang",
