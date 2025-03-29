@@ -38,6 +38,22 @@ const projects: Project[] = [
   //     "QuickShare is a fast, user-friendly file-sharing service designed to support multiple domains, custom branding, and seamless integration with existing infrastructure. Built on a filesystem-based storage backend, QuickShare makes it effortless to sync and share files by directly utilizing local operating system directories or network shares. This approach ensures that files in the designated directories are always up-to-date and ready for download, making it particularly valuable for scenarios involving automated tasks that generate files—such as logs or reports. There's no need to rely on APIs to upload your data; simply place your files in the designated directory, and they will instantly be accessible for sharing.",
   // },
   {
+    title: "Denon Supported",
+    subtitle: "Sonos Port audio controls for Denon receivers",
+    tags: ["Sonos", "Typescript", "Audio", "2025"],
+    image: images.cardDenonSupported,
+    links: [
+      {
+        title: "GitHub Repository",
+        url: "https://github.com/maxwlang/denon-supported",
+        variant: "primary",
+        icon: faGithub,
+      },
+    ],
+    description:
+      "Denon Supported is a project that provides Sonos Port audio controls for Denon receivers. It is designed to be easy to use and flexible. I built Denon Supported after realizing my current Denon AVR wouldn't work with the Sonos Port's passthrough audio controls.",
+  },
+  {
     // Complete
     title: "This Portfolio",
     subtitle: "A personal portfolio website showcasing my work and projects",

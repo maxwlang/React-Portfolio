@@ -12,6 +12,7 @@ import cardMaagic from "../public/projects/card-maagic.jpg";
 import cardMonthlicon from "../public/projects/card-monthlicon.jpg";
 import cardWebtss from "../public/projects/card-webtss.jpg";
 import cardAiMail from "../public/projects/card-ai-mail.png";
+import cardDenonSupported from "../public/projects/card-denon-supported.png";
 import cardPortfolio from "../public/projects/card-portfolio.png";
 import cardOpenSWC from "../public/projects/card-openswc-fusion.png";
 import cardHarbinger from '../public/projects/card-harbinger.png';
@@ -55,6 +56,7 @@ const images = {
   // TODO: add real images
   cardQuickShare: cardPortfolio,
   cardHomeLab: cardPortfolio,
+  cardDenonSupported,
   cardPortfolio,
   cardOpenSWC,
   cardHarbinger,
