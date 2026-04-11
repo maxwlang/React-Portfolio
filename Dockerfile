@@ -1,4 +1,4 @@
-FROM node:22-alpine AS base
+FROM node:24-alpine AS base
 
 ENV YARN_VERSION=4.3.1
 RUN corepack enable && corepack prepare yarn@${YARN_VERSION}
