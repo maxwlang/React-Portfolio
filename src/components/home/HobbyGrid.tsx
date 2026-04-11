@@ -107,8 +107,9 @@ const HobbyGridCard: React.FC<HobbyGridCardProps> = ({
       <Image
         src={hobby.image}
         alt={hobby.title}
-        layout="fill"
-        objectFit="cover"
+        fill
+        sizes="(max-width: 768px) 50vw, 33vw"
+        style={{ objectFit: "cover" }}
         quality={95}
         priority
       />
@@ -150,8 +151,9 @@ const HobbyCard: React.FC<HobbyCardProps> = ({
         <Image
           src={hobby.image}
           alt={hobby.title}
-          layout="fill"
-          objectFit="cover"
+          fill
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
           quality={95}
           priority
         />

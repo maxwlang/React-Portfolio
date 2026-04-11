@@ -93,8 +93,9 @@ const About: React.FC = () => {
         <Image
           src={images.photoWharfWheel}
           alt="Parallax Background"
-          layout="fill"
-          objectFit="cover"
+          fill
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
           quality={80}
           priority
         />
