@@ -99,8 +99,9 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
         <Image
           src={backgroundImage}
           alt="Parallax Background"
-          layout="fill"
-          objectFit="cover"
+          fill
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
           quality={80}
           priority
         />
@@ -119,8 +120,9 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
             <Image
               src={images.profile}
               alt="Maxwell Lang"
-              layout="fill"
-              objectFit="cover"
+              fill
+              sizes="(max-width: 768px) 192px, 256px"
+              style={{ objectFit: "cover" }}
               quality={75}
               priority
             />
