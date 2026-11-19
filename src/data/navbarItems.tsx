@@ -1,5 +1,11 @@
 export interface NavPage {
+  /**
+   * Pathname this nav set applies to. Supports an exact path (`/blog`) or a
+   * leading-prefix match flag for nested routes (e.g. `/blog/[slug]`).
+   */
   path: string;
+  /** When true, matches `pathname` and any nested route below `path`. */
+  matchPrefix?: boolean;
   items: NavItem[];
 }
 
@@ -21,22 +27,33 @@ const homeNavItems: NavItem[] = [
     hidden: true,
   },
   { id: "about-section", label: "About", href: "#about" },
-  // { id: "skills", label: "Skills", href: "#skills" },
+  { id: "skills", label: "Skills", href: "#skills" },
   { id: "projects", label: "Projects", href: "#projects" },
   // { id: "certifications", label: "Certifications", href: "#certifications" },
   { id: "hobbies", label: "Hobbies & Interests", href: "#hobbies" },
-  // {
-  //   id: "photoGallery",
-  //   label: "Photo Gallery",
-  //   href: "https://gallery.maxwlang.com",
-  //   newTab: true,
-  // },
+  { id: "blog", label: "Blog", href: "/blog" },
+];
+
+const innerPageNavItems: NavItem[] = [
+  { id: "home", label: "Home", href: "/" },
+  { id: "projects-index", label: "Projects", href: "/projects" },
+  { id: "blog-index", label: "Blog", href: "/blog" },
 ];
 
 const navPages: NavPage[] = [
   {
-    path: "/", // Home
+    path: "/",
     items: homeNavItems,
+  },
+  {
+    path: "/projects",
+    matchPrefix: true,
+    items: innerPageNavItems,
+  },
+  {
+    path: "/blog",
+    matchPrefix: true,
+    items: innerPageNavItems,
   },
 ];
 
