@@ -1,6 +1,6 @@
 import Hero from "@/components/home/sections/Hero";
 import About from "@/components/home/sections/About";
-// import Skills from "@/components/home/sections/Skills";
+import Skills from "@/components/home/sections/Skills";
 import Projects from "@/components/home/sections/Projects";
 // import Certifications from "@/components/home/sections/Certifications";
 import Hobbies from "@/components/home/sections/HobbiesAndInterests";
@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Hero id="hero" backgroundImage={images.photoSanFrancisco} />
       <About />
-      {/* <Skills /> */}
+      <Skills />
       <Projects />
       {/* <Certifications /> */}
       <Hobbies />
