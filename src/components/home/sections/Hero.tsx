@@ -98,7 +98,8 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
       >
         <Image
           src={backgroundImage}
-          alt="Parallax Background"
+          alt=""
+          aria-hidden="true"
           fill
           sizes="100vw"
           style={{ objectFit: "cover" }}
@@ -119,7 +120,7 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
           >
             <Image
               src={images.profile}
-              alt="Maxwell Lang"
+              alt="Portrait of Maxwell Lang, senior software engineer"
               fill
               sizes="(max-width: 768px) 192px, 256px"
               style={{ objectFit: "cover" }}
