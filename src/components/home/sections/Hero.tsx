@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,7 +9,9 @@ import images from "@/images";
 import TypingText from "@/components/shared/TypingText";
 import phrases from "@/data/homeHeroPhrases";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faKey } from "@fortawesome/free-solid-svg-icons";
+import PgpKeyModal from "@/components/home/PgpKeyModal";
+import { pgpFingerprint } from "@/data/pgpKey";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,6 +27,7 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
   const textContentContainer = useRef<HTMLDivElement>(null);
   const foregroundContainer = useRef<HTMLDivElement>(null);
   const scrollChevronContainer = useRef<HTMLDivElement>(null);
+  const [pgpOpen, setPgpOpen] = useState(false);
 
   useGSAP(
     () => {
@@ -140,6 +143,21 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
                 {new Date().getFullYear() - 2018} years and counting.
               </span>
             </p>
+            <div className="mt-6 flex justify-center">
+              <button
+                onClick={() => setPgpOpen(true)}
+                className="group inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-sm backdrop-blur-md transition-all hover:border-emerald-300/70 hover:bg-emerald-400/10 hover:shadow-[0_0_20px_rgba(110,231,183,0.45)] focus:outline-none focus:ring focus:ring-emerald-300/50"
+              >
+                <FontAwesomeIcon
+                  icon={faKey}
+                  className="transition-transform duration-300 group-hover:-rotate-45 group-hover:text-emerald-300"
+                />
+                <span className="font-semibold">PGP Key</span>
+                <span className="font-mono text-xs text-white/60 group-hover:text-emerald-200">
+                  {pgpFingerprint.split(/\s+/).slice(-2).join(" ")}
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -149,6 +167,8 @@ export const Hero: React.FC<HeroProps> = ({ id, backgroundImage }) => {
           <FontAwesomeIcon icon={faChevronDown} className="fa-2x" />
         </div>
       </div>
+
+      <PgpKeyModal open={pgpOpen} onClose={() => setPgpOpen(false)} />
     </section>
   );
 };
