@@ -7,30 +7,94 @@ import Script from "next/script";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import HashScroller from "@/components/shared/HashScroll";
+import { personJsonLd, websiteJsonLd, SITE_URL } from "@/lib/jsonld";
 config.autoAddCss = false;
 
 const inter = Inter({ subsets: ["latin"] });
 
+const SITE_DESCRIPTION =
+  "Maxwell Lang is a senior software engineer in Minneapolis specializing in TypeScript, React, Next.js, and Node.js. Available for senior and staff remote engineering roles.";
+
 export const metadata: Metadata = {
-  title: "Maxwell Lang",
-  description:
-    "Software engineer, tinkerer, and photographer. Welcome to my portfolio.",
-  metadataBase: new URL("https://maxwlang.com"),
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Maxwell Lang — Senior Software Engineer (TypeScript, React, Node.js)",
+    template: "%s | Maxwell Lang",
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: "Maxwell Lang",
+  authors: [{ name: "Maxwell Lang", url: SITE_URL }],
+  creator: "Maxwell Lang",
+  publisher: "Maxwell Lang",
+  category: "technology",
   keywords: [
     "Maxwell Lang",
     "Max Lang",
-    "Maxwell",
-    "Lang",
-    "software engineer",
-    "tinkerer",
-    "photographer",
+    "senior software engineer",
+    "staff software engineer",
+    "TypeScript engineer",
+    "React engineer",
+    "Next.js developer",
+    "Node.js engineer",
+    "full-stack engineer",
+    "backend engineer",
+    "remote software engineer",
+    "Minneapolis software engineer",
+    "Kafka",
+    "Kubernetes",
+    "GraphQL",
+    "microservices",
+    "event-driven architecture",
+    "distributed systems",
     "portfolio",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
+    url: SITE_URL,
+    siteName: "Maxwell Lang",
+    title:
+      "Maxwell Lang — Senior Software Engineer (TypeScript, React, Node.js)",
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/logo-ml.png",
+        width: 512,
+        height: 512,
+        alt: "Maxwell Lang monogram logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Maxwell Lang — Senior Software Engineer (TypeScript, React, Node.js)",
+    description: SITE_DESCRIPTION,
     images: ["/logo-ml.png"],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/site.webmanifest",
 };
 
 {
@@ -60,6 +124,20 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Script
+          id="ld-person"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <Script
+          id="ld-website"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <Script
           src="https://u.maxwlang.com/e45e75e27812"
           data-website-id="db81a484-016d-4c67-8e7c-65b0c99bed54"

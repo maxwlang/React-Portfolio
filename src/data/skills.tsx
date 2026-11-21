@@ -1,50 +1,73 @@
-const skills = [
+export interface SkillCategory {
+  category: string;
+  items: string[];
+}
+
+const skills: SkillCategory[] = [
   {
-    category: "Programming",
+    category: "Languages",
+    items: ["TypeScript", "JavaScript", "Node.js", "Python", "C#", "SQL"],
+  },
+  {
+    category: "Frontend",
     items: [
-      "TypeScript",
-      "NodeJS",
-      "Javascript",
-      "Python",
-      "C#",
       "React",
-      "GraphQL",
-      "REST APIs",
+      "Next.js",
+      "Tailwind CSS",
+      "GSAP",
+      "Framer Motion",
+      "HTML5",
+      "CSS3",
+    ],
+  },
+  {
+    category: "Backend & APIs",
+    items: [
       "Fastify",
+      "Express",
+      "GraphQL",
+      "REST",
+      "gRPC",
+      "Microservices",
+      "Event-Driven Architecture",
+    ],
+  },
+  {
+    category: "Data & Streaming",
+    items: [
+      "Apache Kafka",
+      "Redis",
+      "PostgreSQL",
+      "MySQL / MariaDB",
+      "Microsoft SQL Server",
+      "MongoDB",
     ],
   },
   {
     category: "Cloud & Infrastructure",
     items: [
-      "Azure",
       "AWS",
-      "On-Premise",
-      "Windows",
-      "Linux",
-      "macOS",
+      "Azure",
       "Kubernetes",
-      "Containerization",
-      "Microservices",
-      "Virtual Machines",
-      "Ansible",
+      "Docker",
       "Terraform",
+      "Ansible",
+      "Linux",
+      "Proxmox",
+      "On-Premise",
     ],
   },
   {
-    category: "Learning & Collaboration",
+    category: "Practices",
     items: [
-      "Jira",
-      "Confluence",
-      "Self-Learner",
-      "Documentation",
-      "Collaboration",
-      "Mentor",
-      "Teamwork",
+      "CI/CD",
+      "Observability",
+      "System Design",
+      "Code Review",
+      "Mentorship",
+      "Technical Writing",
+      "Incident Response",
     ],
-  },
-  {
-    category: "Database",
-    items: ["MySQL / MariaDB", "Microsoft SQL Server", "Apache Kafka"],
   },
 ];
 

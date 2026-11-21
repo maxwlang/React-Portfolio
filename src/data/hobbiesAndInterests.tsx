@@ -9,67 +9,58 @@ export interface HobbyAndInterest {
 
 const hobbiesAndInterests: HobbyAndInterest[] = [
   {
-    // Complete
     title: "3D Printing",
     image: images.hobby3DPrinting,
     description:
-      "Using Autodesk Fusion 360, I design functional 3D models for printing with my Bambu Lab P1S 3D Printer. Recently, a modular keystone jack desk grommet.",
+      "I design functional parts in Autodesk Fusion 360 and print them on a Bambu Lab P1S — most recently a modular keystone-jack desk grommet that solved a real cable-management itch.",
   },
   {
-    // Complete
     title: "Photography",
     image: images.hobbyPhotography,
     description:
-      "Over the last year I've been learning photography with my Sony Alpha A6600. I've been enjoying capturing night cityscapes and urban nature photography.",
+      "Shooting on a Sony Alpha A6600, mostly night cityscapes and urban nature work. Photography is the slow, deliberate counterweight to a fast software job.",
   },
   {
-    // Complete
     title: "Music",
     image: images.hobbyMusic,
     description:
-      "I enjoy a wide range of music—from classical to rock and EDM. I love traveling to music festivals, creating in Ableton Live, curating playlists, and mixing tracks.",
+      "Wide-spectrum listener — classical to rock to EDM. I produce in Ableton Live, curate playlists, mix tracks, and travel to a few festivals each year.",
   },
   {
-    // Complete
     title: "Video Games",
     image: images.hobbyVideoGames,
     description:
-      "I'm a big fan of PC and console games. Typically you'll find me playing JRPGs, strategy, and sandbox games. I have a personal affinity for Nintendo games.",
+      "PC and console gamer with a soft spot for JRPGs, strategy titles, and sandbox games. Long-running Nintendo loyalist.",
   },
   {
-    // Complete
     title: "Traveling",
     image: images.hobbyTraveling2,
     description:
-      "I call Minnesota home, but I love to travel. I frequent Las Vegas, San Francisco, and Denver often. I also love to travel internationally.",
+      "Minneapolis is home base, but I'm regularly out to Las Vegas, San Francisco, and Denver, and I take international trips when I can.",
   },
   {
-    // Complete
     title: "Cooking",
     image: images.hobbyCooking,
     description:
-      "It's a lot of fun to cook and expirament with new recipes. I enjoy cooking Italian and Asian cuisine, and have fun coming up with my own recipes.",
+      "Cooking is its own kind of engineering. I lean Italian and Asian, riff freely on recipes, and enjoy the experiments more than the wins.",
   },
   {
-    // Complete
     title: "Homelabbing",
     image: images.hobbyHomelabbing,
     description:
-      "At home I maintain a rack of servers and networking equipment. I have 3 rack servers, several switches, and a firewall, along with 144TB of storage. This is all networked together with 10Gbps fiber.",
+      "I run a rack at home: three servers, multiple switches, a dedicated firewall, 144TB of storage, and 10 Gbps fiber tying it all together. K3S, Proxmox, 11 VLANs.",
   },
   {
-    // Complete
     title: "Coffee",
     image: images.hobbyCoffee,
     description:
-      "I enjoy brewing coffee with a french press and espresso machine, though some days I just use a Nespresso machine.",
+      "French press and espresso most days, Nespresso when the schedule wins. The ritual matters more than the gear.",
   },
   {
-    // Complete
     title: "Hockey",
     image: images.hobbyHockey,
     description:
-      "An avid hockey fan, I follow the Minnesota Wild and local minor league hockey teams. I try to go to a few games a year.",
+      "Minnesota Wild fan and local minor-league regular. I try to make it out to a handful of games each season.",
   },
 ];
 

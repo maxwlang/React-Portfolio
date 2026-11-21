@@ -1,7 +1,7 @@
 "use client";
-"use client";
 
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import navPages from "@/data/navbarItems";
 import { NavItem } from "@/data/navbarItems";
 import {
@@ -18,7 +18,12 @@ const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const navItems = React.useMemo(() => {
-    return navPages.find((navPage) => navPage.path == pathname)?.items ?? [];
+    const exact = navPages.find((np) => np.path === pathname);
+    if (exact) return exact.items;
+    const prefixed = navPages
+      .filter((np) => np.matchPrefix && np.path !== "/")
+      .find((np) => pathname.startsWith(np.path + "/") || pathname === np.path);
+    return prefixed?.items ?? [];
   }, [pathname]);
 
   useEffect(() => {
@@ -79,6 +84,53 @@ const Navbar: React.FC = () => {
     }
   };
 
+  const renderNavItem = (
+    item: NavItem,
+    extraClassName: string,
+    onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void,
+  ) => {
+    const isAnchor = item.href.startsWith("#");
+    const isInternalRoute =
+      !isAnchor && !item.newTab && item.href.startsWith("/");
+    const content = (
+      <>
+        {item.label}
+        {item.newTab && (
+          <>
+            {" "}
+            <FontAwesomeIcon icon={faExternalLinkAlt} className="text-xs" />
+          </>
+        )}
+      </>
+    );
+
+    if (isInternalRoute) {
+      return (
+        <Link
+          key={item.id}
+          href={item.href}
+          onClick={() => setMobileMenuOpen(false)}
+          className={extraClassName}
+        >
+          {content}
+        </Link>
+      );
+    }
+
+    return (
+      <a
+        key={item.id}
+        href={item.href}
+        onClick={onClick}
+        target={item.newTab ? "_blank" : undefined}
+        rel={item.newTab ? "noopener noreferrer" : undefined}
+        className={extraClassName}
+      >
+        {content}
+      </a>
+    );
+  };
+
   return (
     <nav className="sticky top-0 z-50 bg-background shadow-md">
       {/* Progress Bar */}
@@ -120,27 +172,17 @@ const Navbar: React.FC = () => {
         <div className="hidden sm:flex space-x-4 text-lg">
           {navItems
             .filter((item) => !item.hidden)
-            .map((item) => (
-              <a
-                key={item.id}
-                href={item.href}
-                onClick={(e) => handleNavigationClick(e, item)}
-                target={item.newTab ? "_blank" : undefined}
-                className={`transition-colors hover:text-slate-400 ${
+            .map((item) =>
+              renderNavItem(
+                item,
+                `transition-colors hover:text-slate-400 ${
                   activeItem?.id === item.id
                     ? "text-slate-200 font-bold"
                     : "text-slate-500"
-                }`}
-              >
-                {item.label}{" "}
-                {!item.href.startsWith("#") && (
-                  <FontAwesomeIcon
-                    icon={faExternalLinkAlt}
-                    className="text-xs"
-                  />
-                )}
-              </a>
-            ))}
+                }`,
+                (e) => handleNavigationClick(e, item),
+              ),
+            )}
         </div>
       </div>
 
@@ -155,25 +197,15 @@ const Navbar: React.FC = () => {
           </button>
           {navItems
             .filter((item) => !item.hidden)
-            .map((item) => (
-              <a
-                key={item.id}
-                href={item.href}
-                onClick={(e) => handleNavigationClick(e, item)}
-                target={item.newTab ? "_blank" : undefined}
-                className={`text-slate-200 text-xl hover:underline ${
+            .map((item) =>
+              renderNavItem(
+                item,
+                `text-slate-200 text-xl hover:underline ${
                   activeItem?.id === item.id ? "font-bold underline" : ""
-                }`}
-              >
-                {item.label}{" "}
-                {!item.href.startsWith("#") && (
-                  <FontAwesomeIcon
-                    icon={faExternalLinkAlt}
-                    className="text-xs"
-                  />
-                )}
-              </a>
-            ))}
+                }`,
+                (e) => handleNavigationClick(e, item),
+              ),
+            )}
         </div>
       )}
     </nav>

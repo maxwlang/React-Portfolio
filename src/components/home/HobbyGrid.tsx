@@ -106,7 +106,7 @@ const HobbyGridCard: React.FC<HobbyGridCardProps> = ({
     >
       <Image
         src={hobby.image}
-        alt={hobby.title}
+        alt={`${hobby.title} — one of Maxwell Lang's hobbies`}
         fill
         sizes="(max-width: 768px) 50vw, 33vw"
         style={{ objectFit: "cover" }}
@@ -150,7 +150,7 @@ const HobbyCard: React.FC<HobbyCardProps> = ({
         {/* TODO: Optional carousel support */}
         <Image
           src={hobby.image}
-          alt={hobby.title}
+          alt={`${hobby.title} — one of Maxwell Lang's hobbies`}
           fill
           sizes="100vw"
           style={{ objectFit: "cover" }}

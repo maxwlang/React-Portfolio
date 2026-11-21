@@ -1,15 +1,10 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import ScrollToBottom from "@/components/shared/ScrollToBottom";
-import projects, { Project } from "@/data/projects";
-import ProjectModal from "@/components/home/ProjectModal";
+import projects from "@/data/projects";
 import ProjectCard from "@/components/home/ProjectCard";
 import Section from "@/components/shared/Section";
 
 const Projects: React.FC = () => {
-  const [activeProject, setActiveProject] = useState<Project | null>(null);
-
   return (
     <Section
       id="projects"
@@ -19,20 +14,10 @@ const Projects: React.FC = () => {
         <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
 
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 mb-32">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              onViewMore={() => setActiveProject(project)}
-            />
+          {projects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
-        {activeProject && (
-          <ProjectModal
-            project={activeProject}
-            onClose={() => setActiveProject(null)}
-          />
-        )}
       </ScrollToBottom>
     </Section>
   );

@@ -1,10 +1,16 @@
+/**
+ * Phrases cycled by the Hero TypingText. Each one is followed in the markup
+ * by " for {N} years and counting." so phrases must read naturally before
+ * "for X years" — gerund-style works best.
+ */
 const phrases: string[] = [
-  "Engineering solutions",
-  "Thinking creatively",
-  "Having fun",
+  "Engineering reliable software",
+  "Shipping TypeScript",
+  "Building with React",
+  "Designing APIs",
+  "Scaling distributed systems",
   "Learning new things",
-  "Dreaming",
-  "Future forward",
+  "Having fun",
 ];
 
 export default phrases;

@@ -12,35 +12,35 @@ export interface Link {
 }
 
 export interface Project {
+  /** URL-safe identifier used for /projects/[slug] routes. */
+  slug: string;
   title: string;
   subtitle?: string;
+  /** Short description used on cards and meta. Keep ≤170 chars to avoid truncation in cards. */
   description: string;
+  /** Long-form prose for the dedicated detail page. Plain string; rendered as a paragraph. */
+  longDescription?: string;
+  /** Year the work was done or last updated. Used for sitemap + structured data. */
+  year?: number;
+  /** Primary programming language(s). Surfaced on detail pages and in JSON-LD. */
+  programmingLanguages?: string[];
   tags: string[];
   image?: StaticImageData;
   links?: Link[];
+  /** Optional gallery, surfaced on the detail page. */
+  gallery?: StaticImageData[];
+  /** When true, this card links to GitHub instead of a detail page (e.g. catch-all "more on GitHub"). */
+  externalOnly?: boolean;
 }
 
 const projects: Project[] = [
-  // {
-  //   title: "QuickShare",
-  //   subtitle:
-  //     "A fast, user-friendly file-sharing service that seamlessly syncs and shares files from local directories or network shares without needing APIs.",
-  //   tags: [
-  //     "TypeScript",
-  //     "React",
-  //     "NextJS",
-  //     "Tailwind CSS",
-  //     "MariaDB",
-  //     "Website",
-  //   ],
-  //   image: images.cardQuickShare,
-  //   description:
-  //     "QuickShare is a fast, user-friendly file-sharing service designed to support multiple domains, custom branding, and seamless integration with existing infrastructure. Built on a filesystem-based storage backend, QuickShare makes it effortless to sync and share files by directly utilizing local operating system directories or network shares. This approach ensures that files in the designated directories are always up-to-date and ready for download, making it particularly valuable for scenarios involving automated tasks that generate files—such as logs or reports. There's no need to rely on APIs to upload your data; simply place your files in the designated directory, and they will instantly be accessible for sharing.",
-  // },
   {
+    slug: "denon-supported",
     title: "Denon Supported",
     subtitle: "Sonos Port audio controls for Denon receivers",
-    tags: ["Sonos", "Typescript", "Audio", "2025"],
+    year: 2025,
+    programmingLanguages: ["TypeScript"],
+    tags: ["Sonos", "TypeScript", "Audio", "2025"],
     image: images.cardDenonSupported,
     links: [
       {
@@ -51,13 +51,17 @@ const projects: Project[] = [
       },
     ],
     description:
-      "Denon Supported is a project that provides Sonos Port audio controls for Denon receivers. It is designed to be easy to use and flexible. I built Denon Supported after realizing my current Denon AVR wouldn't work with the Sonos Port's passthrough audio controls.",
+      "Bridges the Sonos Port's audio controls to Denon receivers that don't natively support passthrough. Built in TypeScript after my own AVR refused to play nicely with the Port — the integration parses Sonos events and translates them into the right IR/serial commands so volume, mute, and source switching just work.",
+    longDescription:
+      "Denon Supported is a small TypeScript service that closes a real gap in my own home theater. The Sonos Port is fantastic at what it does, but its audio control passthrough only works with a curated list of partner receivers, and my Denon AVR isn't on that list — meaning volume, mute, and source switching from the Sonos app simply did nothing. I reverse-engineered the relevant Sonos UPnP and notification events, mapped them to the Denon receiver's serial/IR command set, and wrapped the whole thing in a long-running Node service. The result: every Sonos client (mobile, desktop, voice assistant) controls my Denon AVR as if it were a first-class partner. The code intentionally stays small, well-typed, and dependency-light so it's easy to fork and adapt to other unsupported AVRs.",
   },
   {
-    // Complete
+    slug: "this-portfolio",
     title: "This Portfolio",
-    subtitle: "A personal portfolio website showcasing my work and projects",
-    tags: ["React", "TypeScript", "NextJS", "Tailwind CSS", "Website", "2025"],
+    subtitle: "Personal portfolio site built with Next.js 16 and React 19",
+    year: 2025,
+    programmingLanguages: ["TypeScript"],
+    tags: ["React", "TypeScript", "Next.js", "Tailwind CSS", "GSAP", "2025"],
     image: images.cardPortfolio,
     links: [
       {
@@ -68,13 +72,16 @@ const projects: Project[] = [
       },
     ],
     description:
-      "This portfolio website was developed to showcase my work and projects. It was built using modern web technologies like TypeScript, NextJS, React, and Tailwind CSS, and features a responsive design that adapts to various screen sizes.",
+      "The site you're reading. Built with Next.js 16, React 19, TypeScript, and Tailwind, with GSAP-driven scroll scenes and Framer Motion micro-interactions. Designed mobile-first, statically rendered, and tuned for fast loads and accessible markup.",
+    longDescription:
+      "maxwlang.com is a static-first Next.js 16 site running on the App Router with React 19. The visual personality comes from GSAP scroll-pinned sequences in the About section and Framer Motion shared-layout transitions in the Hobbies grid. I lean into the platform: edge-rendered Open Graph images, a typed metadata + JSON-LD layer for SEO, route-level sitemaps, and accessibility-first markup (semantic landmarks, real focus states, descriptive alt text, and decorative images marked aria-hidden). Everything lives in TypeScript with strict types end to end, including the project and blog data layers.",
   },
   {
-    // Complete
+    slug: "ai-mail",
     title: "AI Mail",
-    subtitle:
-      "An fun tool designed to combat scammers by turning the tables on them",
+    subtitle: "A scammer-baiting tool that wastes their time, not yours",
+    year: 2024,
+    programmingLanguages: ["TypeScript"],
     tags: ["TypeScript", "AI", "SMTP", "IMAP", "MariaDB", "2024"],
     image: images.cardAiMail,
     links: [
@@ -86,38 +93,17 @@ const projects: Project[] = [
       },
     ],
     description:
-      "AI Mail is a tool designed to combat scammers by turning the tables on them. Leveraging ChatGPT, it responds to scam emails in a way that wastes the scammers' time, engaging them in lengthy and strange conversations. With SMTP and IMAP integration, AI Mail sends carefully crafted replies that appear gullible, eager, and cooperative, while sharing only fake information. This approach diverts scammers' attention and resources, reducing the harm they can cause to others, all while creating humorous and entertaining exchanges.",
+      "A fun TypeScript project that turns the tables on email scammers. Hooks SMTP and IMAP up to a ChatGPT-driven persona that responds in slow, rambling, almost-cooperative threads — diverting scammers' time and resources away from real victims while producing genuinely funny exchanges.",
+    longDescription:
+      "AI Mail is a TypeScript service that sits behind a throwaway mailbox and impersonates an enthusiastic-but-confused mark. It polls IMAP for new scam attempts, classifies them, and replies via SMTP with a slow-rolling persona generated by an OpenAI model. Threads are persisted in MariaDB so the persona's memory and tone stay consistent across hundreds of replies, and rate limiting keeps the cadence believably human. The point is twofold: a study in conversational state management with LLMs, and a small bit of public-good chaos engineering — every minute a scammer spends arguing with an AI is a minute they aren't spending on a real victim.",
   },
-  // {
-  //   title: "HomeLab",
-  //   subtitle: "A collection of home server projects and services",
-  //   tags: [
-  //     "Kubernetes",
-  //     "Docker",
-  //     "Argo",
-  //     "Linux",
-  //     "Virtual Machines",
-  //     "Systems",
-  //     "ongoing",
-  //     "2023",
-  //   ],
-  //   image: images.cardHomeLab,
-  //   links: [
-  //     {
-  //       title: "Argo Repository",
-  //       url: "https://github.com/maxwlang/argocd-homelab",
-  //       icon: faGithub,
-  //       variant: "primary",
-  //     },
-  //   ],
-  //   description:
-  //     "My homelab is a collection of home server projects and services that I maintain and operate. It includes a Kubernetes cluster, Docker containers, Argo Workflows, virtual machines, and various Linux-based systems. The homelab serves as a testing ground for new technologies and software, enabling me to experiment with different configurations, applications, and services. By managing the homelab, I gain valuable experience in system administration, networking, security, and automation, while also supporting my personal projects and interests.",
-  // },
   {
-    // Complete
+    slug: "harbinger",
     title: "Harbinger",
-    subtitle: "A flexible RSS Feed to Discord webhook translation utility",
-    tags: ["Typescript", "Automation", "2025"],
+    subtitle: "Flexible RSS-to-Discord webhook bridge",
+    year: 2025,
+    programmingLanguages: ["TypeScript"],
+    tags: ["TypeScript", "Automation", "Discord", "2025"],
     image: images.cardHarbinger,
     links: [
       {
@@ -128,14 +114,18 @@ const projects: Project[] = [
       },
     ],
     description:
-      "Harbinger is a utility that translates RSS feeds to Discord webhooks. It is designed to be flexible and easy to use, with support for multiple feeds, webhooks, and custom formatting. I built Harbinger after being dissatisfied with current options on the internet, many services were not flexible enough to support the RSS feeds I was interested in tracking, others cost 8 dollars a month or more, and restricted the amount off feeds you could monitor. Harbinger can be used to automate the delivery of news, updates, and notifications to Discord servers, enabling users to stay informed and up to date on news they care about.",
+      "A flexible RSS-to-Discord webhook utility with multi-feed support and custom formatting. Built it after every existing option was either too restrictive or charged $8+/month with feed caps — Harbinger is self-hosted, free, and configurable enough to fit whatever feeds you actually care about.",
+    longDescription:
+      "Harbinger is a small, self-hosted TypeScript service that polls any number of RSS/Atom feeds and pushes new items to Discord webhooks with per-feed templates. Each feed gets its own polling interval, formatter, and target webhook, with deduplication backed by a tiny on-disk store so restarts don't re-spam channels. I wrote it because the SaaS options were either feature-gated or charging serious money for what amounts to a few hundred lines of glue. The codebase is intentionally readable — typed config, swappable formatters, and a clear module boundary between fetching, parsing, and dispatching — so anyone can fork it and add a new feed shape in an afternoon.",
   },
   {
-    // Complete
+    slug: "openswc-fusion",
     title: "OpenSWC: Fusion",
     subtitle:
-      "An Arduino interface that bridges the ford fusion Steering Wheel Controls to an aftermarket head unit",
-    tags: ["Arduino", "C++", "Electronics", "2024"],
+      "Arduino interface bridging Ford Fusion steering wheel controls to an aftermarket head unit",
+    year: 2024,
+    programmingLanguages: ["C++"],
+    tags: ["Arduino", "C++", "Electronics", "PCB Design", "2024"],
     image: images.cardOpenSWC,
     links: [
       {
@@ -146,12 +136,16 @@ const projects: Project[] = [
       },
     ],
     description:
-      "Initially starting as a simple repository fork, OpenSWC: Fusion is a project that interfaces the Ford Fusion's steering wheel controls with an aftermarket head unit. I started working on it after a purchased adapter that claimed support didn't work. This project was written in C++, and prototyped on the Arduino platform. After building a successful prototype, I designed a custom PCB to house the components and make the project more professional. This project is currently in use in my vehicle",
+      "An Arduino-based interface that bridges Ford Fusion steering wheel controls to an aftermarket head unit. Started as a fork after a purchased adapter failed to deliver — written in C++, prototyped on Arduino, then promoted to a custom-designed PCB. Currently installed and in daily use in my own car.",
+    longDescription:
+      "OpenSWC: Fusion started as a fork of an existing project after a $60 commercial adapter failed to do what the box promised. The hardware sniffs the Ford Fusion's analog steering-wheel resistance ladder, decodes button presses, and emits the right SWC signal pattern for a Pioneer aftermarket head unit. I rewrote the firmware in C++ for clarity, prototyped on a breadboarded Arduino Nano, then designed a small custom PCB so the install would survive the engine bay's heat and vibration. It's been in daily-driver service in my own car for months — the ergonomic difference between thumbing the wheel and reaching for the head unit at 70 mph is the entire point.",
   },
   {
-    // Complete
+    slug: "monthlicon",
     title: "Monthlicon",
-    subtitle: "An iOS jailbreak tweak written in Objective-C",
+    subtitle: "iOS jailbreak tweak that updates the Calendar icon's month label",
+    year: 2018,
+    programmingLanguages: ["Objective-C"],
     tags: ["Objective-C", "iOS", "Jailbreak", "2018"],
     image: images.cardMonthlicon,
     links: [
@@ -168,14 +162,18 @@ const projects: Project[] = [
       },
     ],
     description:
-      "Monthlicon is an iOS jailbreak tweak that enhances the system's home screen (SpringBoard) by dynamically updating the Calendar app's display label to reflect the current month. Despite its simplicity, the tweak achieved significant popularity, with over 10,000 downloads from the BigBoss repository via the Cydia package manager. Additionally, its functionality was recognized and featured in an article.",
+      "An iOS jailbreak tweak that hooks SpringBoard to keep the Calendar icon's month label always current. Simple in scope but well-received — over 10,000 downloads from the BigBoss repo via Cydia, and an editorial feature on iDownloadBlog.",
+    longDescription:
+      "Monthlicon is a jailbreak tweak for iOS that hooks SpringBoard via Theos/Logos and updates the Calendar app icon every time the visible month changes — a small detail Apple's stock icon doesn't do unless the app is opened. Tiny in scope, but it scratched a real itch and ended up shipped via the BigBoss Cydia repository where it picked up 10,000+ downloads and a write-up on iDownloadBlog. It was my first real exposure to runtime hooking, dynamic library injection, and packaging C/Objective-C tooling for distribution to strangers — formative stuff for a teenager who would go on to build a career around shipping software other people depend on.",
   },
   {
-    // Complete
+    slug: "webtss",
     title: "WebTSS",
     subtitle:
-      "A community-oriented open-source website in the iOS jailbreak scene written in PHP",
-    tags: ["PHP", "MySQL", "Website", "2016"],
+      "Open-source iOS SHSH blob saver from the early jailbreak community",
+    year: 2016,
+    programmingLanguages: ["PHP"],
+    tags: ["PHP", "MySQL", "Website", "Open Source", "2016"],
     image: images.cardWebtss,
     links: [
       {
@@ -186,23 +184,31 @@ const projects: Project[] = [
       },
     ],
     description:
-      "WebTSS was an open-source project I developed under the MIT license, designed to save iOS SHSH blobs—a critical tool for restoring iPhones after Apple discontinues support for downgrading to specific firmware versions. Although the project is now defunct, it garnered some attention within the community during its active period and received a few contributions through community pull requests.",
+      "An MIT-licensed PHP project that saved iOS SHSH blobs — the cryptographic tickets needed to restore iPhones after Apple stopped signing older firmware. Picked up traction in the jailbreak community during its run and received a handful of community pull requests.",
+    longDescription:
+      "WebTSS was an MIT-licensed PHP web app for saving SHSH blobs — Apple's per-device signing tickets that, once Apple rotates them, are the only thing standing between you and being permanently locked out of restoring an older iOS firmware. The project hit a sweet spot in the jailbreak community: low-friction, open-source, no vendor lock-in. It collected a small but real flow of community pull requests, taught me a lot about authenticated API automation against a vendor that actively didn't want you talking to it, and served as my first open-source maintenance role.",
   },
   {
-    // Complete
+    slug: "maagic",
     title: "Maagic",
     subtitle:
-      "A file sharing and screenshot website shared between friends, written in PHP",
-    tags: ["PHP", "MySQL", "Website", "2018"],
+      "Invite-only screenshot and file sharing platform backed by 44TB of NAS storage",
+    year: 2018,
+    programmingLanguages: ["PHP"],
+    tags: ["PHP", "MySQL", "ShareX", "Website", "2018"],
     image: images.cardMaagic,
     description:
-      "Maagic was a website I developed to provide screenshot hosting for my friends and myself, with virtually no limitations on storage or usage. The platform leveraged my NAS—at the time totaling 44TB, enabling a significant amount of data to be uploaded without encountering storage constraints. Initially, Maagic operated as a modified version of the Puush screenshot client, utilizing hex-edited binaries to redirect uploads to Maagic's servers. Later, it transitioned into an endpoint for the widely used screenshot tool ShareX. In its later stages, Maagic became a semi-private, invite-only platform. At its peak, it hosted over 12,100 files and supported a user base of approximately 20 invited members.",
+      "A private screenshot host I built for friends, backed by 44TB of NAS storage so storage caps were never a concern. Started life as a hex-edited Puush client redirecting uploads, then evolved into a proper ShareX endpoint. Peaked at ~20 invited members and 12,100+ hosted files.",
+    longDescription:
+      "Maagic was a private, invite-only screenshot and file host I ran out of my homelab for a small group of friends. The first iteration was a hex-edited Puush client pointed at my own server — useful but fragile. The second was a real ShareX endpoint with a PHP backend, MySQL metadata store, and 44TB of NAS storage behind it so quotas were never the bottleneck. At its peak it served around twenty invited members and held 12,100+ files. The interesting parts ended up being the boring parts: hash-based dedup, signed URLs, abuse handling, and keeping a self-hosted service quietly reliable for friends who'd never tolerate downtime from a paid product.",
   },
   {
-    // Complete
+    slug: "3dsthemes",
     title: "3DSThemes",
-    subtitle: "A community-oriented console homebrew website written in PHP",
-    tags: ["PHP", "MySQL", "Website", "2015"],
+    subtitle: "Community homebrew theme site that out-ranked Nintendo on Google",
+    year: 2015,
+    programmingLanguages: ["PHP"],
+    tags: ["PHP", "MySQL", "Linux", "Website", "2015"],
     image: images.card3dsThemes,
     links: [
       {
@@ -212,15 +218,18 @@ const projects: Project[] = [
       },
     ],
     description:
-      "3DSThemes was a collaborative project I contributed to as part of a small team. My primary responsibilities included backend programming in PHP, managing the MySQL database, administering the Debian server, and assisting with front-end development and design. During its active period, the website achieved significant growth, amassing over 1,000 registered users, hosting more than 2,500 uploaded themes, and surpassing 335,000 total theme downloads. At its peak, 3DSThemes outranked Nintendo's official 3DS Themes page to become the top result in Google search.",
+      "Backend, database, and Debian server admin for a community-run Nintendo 3DS theme site. Grew to 1,000+ registered users, 2,500+ uploaded themes, and 335,000+ downloads — and at its peak ranked above Nintendo's own page on Google for 3DS themes.",
+    longDescription:
+      "3DSThemes was a community-run repository for homebrew Nintendo 3DS themes. I owned the backend, the MySQL schema, and the Debian server admin while a co-founder handled the front end and community moderation. The site grew to 1,000+ registered users, 2,500+ uploaded themes, and 335,000+ downloads, and at its peak it ranked above Nintendo's own page in Google search results for the relevant queries — a teenage SEO accident that taught me, very early, what 'real' production traffic actually looks like and why uptime, schema migrations, and abuse handling are so much harder than the demo on your laptop.",
   },
   {
-    title: "There's more to see!",
-    subtitle: "Check out my GitHub for more projects.",
+    slug: "more-on-github",
+    title: "There's more on GitHub.",
+    subtitle: "Open-source experiments, libraries, and side projects.",
     description:
-      "I have many more projects on my GitHub profile. Feel free to check them out!",
+      "I keep a steady stream of side projects on GitHub — utilities, experiments, and the odd reverse-engineering rabbit hole. Have a look around.",
     tags: [],
-    // image: images.cardGithub,
+    externalOnly: true,
     links: [
       {
         title: "GitHub Profile",
